@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Facturae"
+run/main_scene="uid://bcnwamcc1w56l"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Musiquita="*res://Scenes/musiquita.tscn"
 
 [rendering]
 

@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmrkkr24qaeva"]
+
+[ext_resource type="Script" uid="uid://dvm8musneuu7t" path="res://Scripts/computer.gd" id="1_3cxpa"]
+[ext_resource type="Texture2D" uid="uid://clwq1jfxsuiv2" path="res://Assets/Pantalla.png" id="1_4xga7"]
+[ext_resource type="Texture2D" uid="uid://djpce153d85jt" path="res://Assets/A.png" id="2_7h0tq"]
+[ext_resource type="Texture2D" uid="uid://de04gsfihrlk6" path="res://Assets/b.png" id="3_3cxpa"]
+[ext_resource type="Texture2D" uid="uid://ceouqkwkqadcy" path="res://Assets/C.png" id="4_m7p0i"]
+
+[node name="computer" type="Node2D"]
+script = ExtResource("1_3cxpa")
+
+[node name="Pantalla" type="Sprite2D" parent="."]
+texture = ExtResource("1_4xga7")
+
+[node name="Factura A" type="Button" parent="."]
+offset_left = -214.0
+offset_top = -165.0
+offset_right = -90.0
+offset_bottom = 11.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("2_7h0tq")
+flat = true
+
+[node name="Factura B" type="Button" parent="."]
+offset_left = -61.0
+offset_top = -164.0
+offset_right = 63.0
+offset_bottom = 12.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("3_3cxpa")
+flat = true
+
+[node name="Factura C" type="Button" parent="."]
+offset_left = 89.0
+offset_top = -163.0
+offset_right = 213.0
+offset_bottom = 13.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("4_m7p0i")
+flat = true
+
+[node name="Continuar" type="Button" parent="."]
+visible = false
+offset_left = -89.0
+offset_top = 18.0
+offset_right = 88.0
+offset_bottom = 77.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 35
+text = "Continuar"
+
+[connection signal="pressed" from="Factura A" to="." method="_on_factura_a_pressed"]
+[connection signal="pressed" from="Factura B" to="." method="_on_factura_b_pressed"]
+[connection signal="pressed" from="Factura C" to="." method="_on_factura_c_pressed"]
+[connection signal="pressed" from="Continuar" to="." method="_on_button_pressed"]

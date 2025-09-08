@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgj228606yesh"]
+
+[ext_resource type="Script" uid="uid://f4vjoo4gsc7y" path="res://Scripts/personaje.gd" id="1_7vwx0"]
+[ext_resource type="Texture2D" uid="uid://bwa6813edrtb0" path="res://Assets/empresario lesbiano.png" id="1_ksl8w"]
+
+[node name="Personaje" type="Node2D"]
+script = ExtResource("1_7vwx0")
+
+[node name="Empresario" type="Sprite2D" parent="."]
+texture = ExtResource("1_ksl8w")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -252.0
+offset_top = -472.0
+offset_right = 237.0
+offset_bottom = -403.0
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
