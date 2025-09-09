@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcnwamcc1w56l"]
+[gd_scene load_steps=8 format=3 uid="uid://bcnwamcc1w56l"]
 
 [ext_resource type="Script" uid="uid://17c2y0j4ybqa" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="Texture2D" uid="uid://dadx3rh1hrvpw" path="res://Assets/Mesa.png" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cmrkkr24qaeva" path="res://Scenes/computer.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://dgj228606yesh" path="res://Scenes/personaje.tscn" id="2_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dka3ks6dtqqg0" path="res://Scenes/facturas.tscn" id="4_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://dfthfahcgtnhd" path="res://Assets/papel escrito.png" id="6_21xkr"]
+[ext_resource type="Texture2D" uid="uid://b6d06q4vlj81l" path="res://Assets/Fondo.png" id="7_6bp64"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_8gbba")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -25,6 +27,34 @@ position = Vector2(1560, 654)
 
 [node name="Facturas" parent="." instance=ExtResource("4_jjvhh")]
 position = Vector2(591, 583)
+
+[node name="Vidas" type="HBoxContainer" parent="."]
+offset_left = 1512.0
+offset_top = 20.0
+offset_right = 1932.0
+offset_bottom = 159.0
+
+[node name="Vida1" type="TextureRect" parent="Vidas"]
+layout_mode = 2
+texture = ExtResource("6_21xkr")
+
+[node name="Vida2" type="TextureRect" parent="Vidas"]
+layout_mode = 2
+texture = ExtResource("6_21xkr")
+
+[node name="Vida3" type="TextureRect" parent="Vidas"]
+layout_mode = 2
+texture = ExtResource("6_21xkr")
+
+[node name="FeedbackLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Fondo" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_as_relative = false
+position = Vector2(968, 538)
+texture = ExtResource("7_6bp64")
 
 [connection signal="continuar" from="computer" to="." method="_on_computer_continuar"]
 [connection signal="facturaA" from="computer" to="." method="_on_computer_factura_a"]

@@ -18,3 +18,6 @@ func dialogo_random() -> void:
 	var linea_dialogo = dialogos[opcion_actual].pick_random()
 	caja_dialogo.text = linea_dialogo
 	pass
+	
+func nueva_peticion() -> void:
+	dialogo_random()
