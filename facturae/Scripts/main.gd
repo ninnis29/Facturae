@@ -11,17 +11,6 @@ extends Node2D
 var seleccion_jugador: String = "" 
 var vidas: int = 3
 
-func _ready() -> void:
-	# Cargamos el archivo de música directamente desde la carpeta del proyecto
-	var musica = load("res://Music/facturae_ost_1.wav")  # ruta exacta y extensión correcta
-	if musica:
-		var player = AudioStreamPlayer.new()    # creamos un AudioStreamPlayer en memoria
-		add_child(player)                        # lo agregamos a la escena para que se reproduzca
-		player.stream = musica                   # asignamos el archivof
-		player.play()                            # reproducimos la música
-	else:
-		print("No se encontró el archivo de música")
-
 func _on_computer_factura_a() -> void:
 	facturas.mostrar_factura("A")
 	seleccionar_opcion("A")

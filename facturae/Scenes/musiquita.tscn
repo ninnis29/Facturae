@@ -1,10 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://da2mqnxkrv8ax"]
 
-[ext_resource type="AudioStream" uid="uid://c3jypwr2look2" path="res://Music/facturae_ost_1.wav" id="1_b71us"]
+[ext_resource type="AudioStream" uid="uid://k211p3uhvd2g" path="res://Music/facturae_ost_1.ogg" id="1_b71us"]
 
 [node name="musiquita" type="Node2D"]
 
 [node name="musica" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_b71us")
+volume_db = 7.924
 autoplay = true
-playback_type = 1
+panning_strength = 0.0
+parameters/looping = true
