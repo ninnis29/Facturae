@@ -7,6 +7,7 @@ var factura_b = preload("res://Assets/Facturita_B.png")
 var factura_c = preload("res://Assets/Facturita_C.png")
 
 func mostrar_factura(opcion):
+	factura_sprite.visible = true
 	match opcion:
 		"A":
 			factura_sprite.texture = factura_a
@@ -14,3 +15,6 @@ func mostrar_factura(opcion):
 			factura_sprite.texture = factura_b
 		"C":
 			factura_sprite.texture = factura_c
+
+func esconder_factura():
+	factura_sprite.visible = false

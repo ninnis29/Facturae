@@ -11,6 +11,11 @@ extends Node2D
 var seleccion_jugador: String = "" 
 var vidas: int = 3
 
+func _ready():
+	# Reproduce la musica al ser invocado. Si se usa autoplay se buguea cuando se reinicia la escena.
+	musiquita.reproducir_musica()
+
+
 func _on_computer_factura_a() -> void:
 	facturas.mostrar_factura("A")
 	seleccionar_opcion("A")
@@ -37,6 +42,7 @@ func gana_pierde() -> void:
 	else:
 		label_pj.text = "Eso no fue lo que pedí :C"
 		perder_vida()
+	facturas.esconder_factura()
 
 func perder_vida() -> void:
 	vidas -= 1
@@ -61,4 +67,5 @@ func continuar_partida() -> void:
 func game_over() -> void:
 	label_pj.text = "¡Se acabaron las facturas! :("
 	await get_tree().create_timer(2.0).timeout
+	musiquita.frenar_musica() # Si o si tiene que estar esto sino se buguea al reiniciar :) 
 	get_tree().reload_current_scene()
