@@ -1,5 +1,8 @@
 extends Node2D
 @onready var caja_dialogo = $Label
+@onready var facturas = $"../Facturas"
+
+
 
 func _ready() -> void:
 	factura_random()
@@ -84,6 +87,7 @@ func generacion_datos_cliente() -> void:
 	cuit_random()
 	domicilio_random()
 	condicion_iva()
+	facturas.actualizar_informacion(cuit_cliente)
 
 
 func nombre_completo_random() -> void: # Genera nombre
@@ -91,29 +95,29 @@ func nombre_completo_random() -> void: # Genera nombre
 	nombre_cliente = lista_nombres.pick_random()
 	apellido_cliente = lista_apellidos.pick_random()
 	
-	## Debug
-	print("------ Nombre Completo ------")
-	print(nombre_cliente)
-	print(apellido_cliente)
+	### Debug
+	#print("------ Nombre Completo ------")
+	#print(nombre_cliente)
+	#print(apellido_cliente)
 
 func cuit_random() -> void: # Genera CUIT
 	cuit_cliente = lista_cuits.pick_random()
 	
-	## Debug
-	print("------ CUIT ------")
-	print(cuit_cliente)
+	### Debug
+	#print("------ CUIT ------")
+	#print(cuit_cliente)
 
 func domicilio_random() -> void: # Genera Domicilio agrupando Calle + Altura
 	
 	domicilio_cliente = lista_domicilio_calle.pick_random() + " " + lista_domicilio_altura.pick_random()
 	
-	## Debug
-	print("------ DIRECCION ------")
-	print(domicilio_cliente)
+	### Debug
+	#print("------ DIRECCION ------")
+	#print(domicilio_cliente)
 
 func condicion_iva() -> void:
 	condicion_cliente = lista_condiciones_iva.pick_random()
 	
-	## Debug
-	print("------ CONDICION ------")
-	print(condicion_cliente)
+	### Debug
+	#print("------ CONDICION ------")
+	#print(condicion_cliente)

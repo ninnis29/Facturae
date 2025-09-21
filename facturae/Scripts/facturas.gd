@@ -1,12 +1,17 @@
 extends Node2D
 
 @onready var factura_sprite = $Facturita
+@onready var cuit_drag_label: RichTextLabel = $Drags/CuitDragLabel
+
+@onready var personaje: Node2D = $"../Personaje"
+
 
 var factura_a = preload("res://Assets/Facturita_A.png")
 var factura_b = preload("res://Assets/Facturita_B.png")
 var factura_c = preload("res://Assets/Facturita_C.png")
 
-func mostrar_factura(opcion):
+
+func mostrar_factura(opcion) -> void:
 	factura_sprite.visible = true
 	match opcion:
 		"A":
@@ -16,5 +21,10 @@ func mostrar_factura(opcion):
 		"C":
 			factura_sprite.texture = factura_c
 
-func esconder_factura():
+func esconder_factura() -> void:
 	factura_sprite.visible = false
+
+func actualizar_informacion(cuit_cliente) -> void:
+	
+	cuit_drag_label.actualizar_label(cuit_cliente)
+	

@@ -27,7 +27,7 @@ texture = ExtResource("3_344ge")
 position = Vector2(1560, 654)
 
 [node name="Facturas" parent="." instance=ExtResource("4_jjvhh")]
-position = Vector2(591, 583)
+position = Vector2(1475, 285)
 
 [node name="Vidas" type="HBoxContainer" parent="."]
 offset_left = 1512.0
