@@ -75,6 +75,7 @@ func factura_random() -> void:
 	var linea_dialogo = dialogos[opcion_actual].pick_random()
 	caja_dialogo.text = linea_dialogo
 	
+	
 	generacion_datos_cliente()
 
 func nueva_peticion() -> void:

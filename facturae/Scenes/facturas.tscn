@@ -1,8 +1,27 @@
 [gd_scene load_steps=4 format=3 uid="uid://dka3ks6dtqqg0"]
 
 [ext_resource type="Script" uid="uid://bgdrbxwytnt1y" path="res://Scripts/facturas.gd" id="1_qqca8"]
-[ext_resource type="Script" uid="uid://desiqqpd8q1lb" path="res://Scripts/CuitDrag.gd" id="2_1iqqh"]
 [ext_resource type="Script" uid="uid://bkgxjgp7xrr38" path="res://Scripts/CuitSlot.gd" id="3_t1a3n"]
+
+[sub_resource type="GDScript" id="GDScript_1iqqh"]
+script/source = "extends RichTextLabel
+
+@onready var personaje: Node2D = $\"../../../Personaje\"  # ajustá según tu jerarquía
+
+func _get_drag_data(at_position: Vector2) -> Variant:
+	var data = personaje.cuit_cliente
+	
+	var prev_label = RichTextLabel.new()
+	prev_label.text = text
+	prev_label.custom_minimum_size = Vector2(100, 100)
+	prev_label.fit_content = true
+	set_drag_preview(prev_label)
+	
+	return data
+
+func actualizar_label(cuit: String) -> void:
+	text = cuit
+"
 
 [node name="Facturas" type="Node2D"]
 script = ExtResource("1_qqca8")
@@ -39,7 +58,7 @@ theme_override_font_sizes/normal_font_size = 50
 text = "CUIT"
 fit_content = true
 autowrap_mode = 0
-script = ExtResource("2_1iqqh")
+script = SubResource("GDScript_1iqqh")
 
 [node name="CuitDragPanel" type="Panel" parent="Drags"]
 visible = false
