@@ -12,44 +12,66 @@ script = ExtResource("1_3cxpa")
 [node name="Pantalla" type="Sprite2D" parent="."]
 texture = ExtResource("1_4xga7")
 
-[node name="Factura A" type="Button" parent="."]
-offset_left = -214.0
-offset_top = -165.0
-offset_right = -90.0
-offset_bottom = 11.0
+[node name="PanelCliente" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NombreLabel" type="Label" parent="PanelCliente"]
+layout_mode = 2
+
+[node name="CuitLabel" type="Label" parent="PanelCliente"]
+layout_mode = 2
+
+[node name="DomicilioLabel" type="Label" parent="PanelCliente"]
+layout_mode = 2
+
+[node name="CondicionLabel" type="Label" parent="PanelCliente"]
+layout_mode = 2
+
+[node name="PanelSeleccion" type="HBoxContainer" parent="."]
+offset_left = -189.0
+offset_top = -184.0
+offset_right = 202.0
+offset_bottom = 8.0
+
+[node name="Factura A" type="Button" parent="PanelSeleccion"]
+layout_mode = 2
 mouse_default_cursor_shape = 2
 icon = ExtResource("2_7h0tq")
 flat = true
 
-[node name="Factura B" type="Button" parent="."]
-offset_left = -61.0
-offset_top = -164.0
-offset_right = 63.0
-offset_bottom = 12.0
+[node name="Factura B" type="Button" parent="PanelSeleccion"]
+layout_mode = 2
 mouse_default_cursor_shape = 2
 icon = ExtResource("3_3cxpa")
 flat = true
 
-[node name="Factura C" type="Button" parent="."]
-offset_left = 89.0
-offset_top = -163.0
-offset_right = 213.0
-offset_bottom = 13.0
+[node name="Factura C" type="Button" parent="PanelSeleccion"]
+layout_mode = 2
 mouse_default_cursor_shape = 2
 icon = ExtResource("4_m7p0i")
 flat = true
 
 [node name="Continuar" type="Button" parent="."]
-visible = false
-offset_left = -89.0
-offset_top = 18.0
-offset_right = 88.0
-offset_bottom = 77.0
+offset_left = -229.0
+offset_top = 11.0
+offset_right = -10.0
+offset_bottom = 81.0
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 35
 text = "Continuar"
 
-[connection signal="pressed" from="Factura A" to="." method="_on_factura_a_pressed"]
-[connection signal="pressed" from="Factura B" to="." method="_on_factura_b_pressed"]
-[connection signal="pressed" from="Factura C" to="." method="_on_factura_c_pressed"]
+[node name="Retroceder" type="Button" parent="."]
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 222.0
+offset_bottom = 78.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 35
+text = "Retroceder"
+
+[connection signal="pressed" from="PanelSeleccion/Factura A" to="." method="_on_factura_a_pressed"]
+[connection signal="pressed" from="PanelSeleccion/Factura B" to="." method="_on_factura_b_pressed"]
+[connection signal="pressed" from="PanelSeleccion/Factura C" to="." method="_on_factura_c_pressed"]
 [connection signal="pressed" from="Continuar" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Retroceder" to="." method="_on_button_pressed"]

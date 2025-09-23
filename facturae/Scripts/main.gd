@@ -60,7 +60,6 @@ func continuar_partida() -> void:
 	await get_tree().create_timer(1.0).timeout
 	personaje.nueva_peticion()  # esto genera un nuevo diálogo aleatorio
 	seleccion_jugador = ""
-	continuar_btn.visible = false
 	# Solo limpiamos feedback, no el pedido del personaje
 	# feedback_label.text = ""  # si tenés un Label separado para mensajes
 

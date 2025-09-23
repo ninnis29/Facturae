@@ -75,7 +75,6 @@ func factura_random() -> void:
 	var linea_dialogo = dialogos[opcion_actual].pick_random()
 	caja_dialogo.text = linea_dialogo
 	
-	
 	generacion_datos_cliente()
 
 func nueva_peticion() -> void:
@@ -122,3 +121,9 @@ func condicion_iva() -> void:
 	### Debug
 	#print("------ CONDICION ------")
 	#print(condicion_cliente)
+
+func generar_cuit_secundario() -> String:
+	var cuit_secundario = cuit_cliente
+	while cuit_secundario == cuit_cliente:
+		cuit_secundario = lista_cuits.pick_random()
+	return cuit_secundario

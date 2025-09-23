@@ -6,11 +6,10 @@
 [sub_resource type="GDScript" id="GDScript_1iqqh"]
 script/source = "extends RichTextLabel
 
-@onready var personaje: Node2D = $\"../../../Personaje\"  # ajustá según tu jerarquía
-
 func _get_drag_data(at_position: Vector2) -> Variant:
-	var data = personaje.cuit_cliente
-	
+	# Usar el texto actual del drag, no el CUIT del personaje
+	var data = text
+
 	var prev_label = RichTextLabel.new()
 	prev_label.text = text
 	prev_label.custom_minimum_size = Vector2(100, 100)
@@ -48,10 +47,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -83.0
-offset_top = -34.5
-offset_right = 83.0
-offset_bottom = 34.5
+offset_left = -201.0
+offset_top = -169.0
+offset_right = -35.0
+offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 50
@@ -59,6 +58,7 @@ text = "CUIT"
 fit_content = true
 autowrap_mode = 0
 script = SubResource("GDScript_1iqqh")
+metadata/_edit_group_ = true
 
 [node name="CuitDragPanel" type="Panel" parent="Drags"]
 visible = false
@@ -70,6 +70,39 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="CuitDragLabel2" type="RichTextLabel" parent="Drags"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -92.0
+offset_right = -38.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "CUIT"
+fit_content = true
+autowrap_mode = 0
+script = SubResource("GDScript_1iqqh")
+metadata/_edit_group_ = true
+
+[node name="CuitDragPanel2" type="Panel" parent="Drags"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
 
 [node name="Slots" type="Control" parent="."]
 layout_mode = 3
@@ -84,9 +117,12 @@ grow_vertical = 2
 
 [node name="CuitSlotPanel" type="Panel" parent="Slots"]
 layout_mode = 0
-offset_right = 160.0
-offset_bottom = 101.0
+offset_left = 227.0
+offset_top = -122.0
+offset_right = 387.0
+offset_bottom = -21.0
 script = ExtResource("3_t1a3n")
+metadata/_edit_group_ = true
 
 [node name="CuitSlotLabel" type="RichTextLabel" parent="Slots/CuitSlotPanel"]
 layout_mode = 0
@@ -94,6 +130,5 @@ offset_right = 92.0
 offset_bottom = 69.0
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 50
-text = "Test"
 fit_content = true
 autowrap_mode = 0
