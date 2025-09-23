@@ -65,6 +65,7 @@ var apellido_cliente = ""
 var cuit_cliente = ""
 var domicilio_cliente = ""
 var condicion_cliente = ""
+var cuit_secundario = ""
 
 var opcion_actual = ""
 
@@ -73,7 +74,7 @@ func factura_random() -> void:
 	opcion_actual = opciones.pick_random()
 	var linea_dialogo = dialogos[opcion_actual].pick_random()
 	caja_dialogo.text = linea_dialogo
-	
+	facturas.cliente_factura = opcion_actual
 	generacion_datos_cliente()
 
 func nueva_peticion() -> void:
@@ -84,6 +85,7 @@ func nueva_peticion() -> void:
 func generacion_datos_cliente() -> void: 
 	nombre_completo_random()
 	cuit_random()
+	generar_cuit_secundario()
 	domicilio_random()
 	condicion_iva()
 	await get_tree().process_frame
@@ -129,8 +131,8 @@ func condicion_iva() -> void:
 	#print("------ CONDICION ------")
 	#print(condicion_cliente)
 
-func generar_cuit_secundario() -> String:
-	var cuit_secundario = cuit_cliente
+func generar_cuit_secundario() -> void:
+	cuit_secundario = cuit_cliente
 	while cuit_secundario == cuit_cliente:
 		cuit_secundario = lista_cuits.pick_random()
-	return cuit_secundario
+	

@@ -8,6 +8,10 @@ extends Node2D
 @onready var musiquita = $musiquita
 @onready var vidas_container = $Vidas  # Un HBoxContainer o similar con 3 sprites/texturas de facturas
 
+signal correcto
+signal pierde_vida
+
+
 var seleccion_jugador: String = "" 
 var vidas: int = 3
 
@@ -28,24 +32,15 @@ func _on_computer_factura_c() -> void:
 	facturas.mostrar_factura("C")
 	seleccionar_opcion("C")
 
-func _on_computer_continuar() -> void:
-	gana_pierde()
-
 func seleccionar_opcion(opcion: String) -> void:
 	continuar_btn.visible = true
 	seleccion_jugador = opcion
 
-func gana_pierde() -> void:
-	if seleccion_jugador == personaje.opcion_actual:
-		label_pj.text = "¡Gracias! :D"
-		continuar_partida()
-	else:
-		label_pj.text = "Eso no fue lo que pedí :C"
-		perder_vida()
-	facturas.esconder_factura()
 
 func perder_vida() -> void:
+
 	vidas -= 1
+
 
 	if vidas_container.get_child_count() >= vidas + 1:
 		var vida_node = vidas_container.get_child(vidas) # selecciona la última vida activa
@@ -53,6 +48,7 @@ func perder_vida() -> void:
 
 	if vidas <= 0:
 		game_over()
+		facturas.esconder_factura()
 	else:
 		continuar_partida()
 
@@ -62,9 +58,23 @@ func continuar_partida() -> void:
 	seleccion_jugador = ""
 	# Solo limpiamos feedback, no el pedido del personaje
 	# feedback_label.text = ""  # si tenés un Label separado para mensajes
+	facturas.esconder_factura()
 
 func game_over() -> void:
 	label_pj.text = "¡Se acabaron las facturas! :("
 	await get_tree().create_timer(2.0).timeout
 	musiquita.frenar_musica() # Si o si tiene que estar esto sino se buguea al reiniciar :) 
 	get_tree().reload_current_scene()
+
+
+func on_correcto() -> void:
+	facturas.esconder_factura()
+	label_pj.text = "¡Gracias! :D"
+	await get_tree().create_timer(2.0).timeout
+	continuar_partida()
+
+func on_pierde_vida() -> void:
+	facturas.esconder_factura()
+	label_pj.text = "Eso no fue lo que pedí :C"
+	await get_tree().create_timer(2.0).timeout
+	perder_vida()

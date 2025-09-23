@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmrkkr24qaeva"]
+[gd_scene load_steps=9 format=3 uid="uid://cmrkkr24qaeva"]
 
 [ext_resource type="Script" uid="uid://dvm8musneuu7t" path="res://Scripts/computer.gd" id="1_3cxpa"]
 [ext_resource type="Texture2D" uid="uid://clwq1jfxsuiv2" path="res://Assets/Pantalla.png" id="1_4xga7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://de04gsfihrlk6" path="res://Assets/b.png" id="3_3cxpa"]
 [ext_resource type="Texture2D" uid="uid://ceouqkwkqadcy" path="res://Assets/C.png" id="4_m7p0i"]
 [ext_resource type="Script" uid="uid://dm0uonecw8x5j" path="res://Scenes/continuar.gd" id="6_8u73g"]
+[ext_resource type="Texture2D" uid="uid://cqfevmt1hyt57" path="res://Assets/EntregarHover.png" id="7_i500x"]
 [ext_resource type="Texture2D" uid="uid://m7snggxcccyu" path="res://Assets/Entregar.png" id="7_iofu4"]
 
 [node name="computer" type="Node2D"]
@@ -24,15 +25,19 @@ size_flags_vertical = 3
 
 [node name="NombreLabel" type="Label" parent="PanelCliente"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 
 [node name="CuitLabel" type="Label" parent="PanelCliente"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 
 [node name="DomicilioLabel" type="Label" parent="PanelCliente"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 
 [node name="CondicionLabel" type="Label" parent="PanelCliente"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 
 [node name="PanelSeleccion" type="HBoxContainer" parent="."]
 offset_left = -189.0
@@ -58,19 +63,16 @@ mouse_default_cursor_shape = 2
 icon = ExtResource("4_m7p0i")
 flat = true
 
-[node name="Continuar" type="Button" parent="."]
-offset_left = -229.0
-offset_top = 11.0
-offset_right = -10.0
-offset_bottom = 81.0
+[node name="Continuar" type="TextureButton" parent="."]
+offset_left = -245.0
+offset_top = 19.0
+offset_right = 9.0
+offset_bottom = 74.0
 mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 35
-text = "Continuar"
+texture_normal = ExtResource("7_iofu4")
+texture_pressed = ExtResource("7_i500x")
+texture_hover = ExtResource("7_i500x")
 script = ExtResource("6_8u73g")
-
-[node name="Sprite2D" type="Sprite2D" parent="Continuar"]
-position = Vector2(110, 35)
-texture = ExtResource("7_iofu4")
 
 [node name="Retroceder" type="Button" parent="."]
 offset_left = 11.0
