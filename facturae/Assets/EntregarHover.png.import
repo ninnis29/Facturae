@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xt063sjs3m4m"
-path="res://.godot/imported/Facturita_A.png-370cd5adf20b8f7e2a504f7641025e73.ctex"
+uid="uid://cqfevmt1hyt57"
+path="res://.godot/imported/EntregarHover.png-35693edcc0aee0d5d244b79470081100.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Facturita_A.png"
-dest_files=["res://.godot/imported/Facturita_A.png-370cd5adf20b8f7e2a504f7641025e73.ctex"]
+source_file="res://Assets/EntregarHover.png"
+dest_files=["res://.godot/imported/EntregarHover.png-35693edcc0aee0d5d244b79470081100.ctex"]
 
 [params]
 

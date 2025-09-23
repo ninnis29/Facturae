@@ -26,6 +26,8 @@ func actualizar_label(cuit: String) -> void:
 script = ExtResource("1_qqca8")
 
 [node name="Facturita" type="Sprite2D" parent="."]
+position = Vector2(-898, -10.0461)
+scale = Vector2(1.16914, 1.16914)
 
 [node name="Drags" type="Control" parent="."]
 layout_mode = 3
@@ -47,10 +49,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -201.0
-offset_top = -169.0
-offset_right = -35.0
-offset_bottom = -100.0
+offset_left = -375.0
+offset_top = -264.0
+offset_right = -209.0
+offset_bottom = -195.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 50
@@ -79,10 +81,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -204.0
-offset_top = -92.0
-offset_right = -38.0
-offset_bottom = -23.0
+offset_left = 45.0
+offset_top = -264.0
+offset_right = 211.0
+offset_bottom = -195.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 50
@@ -117,10 +119,10 @@ grow_vertical = 2
 
 [node name="CuitSlotPanel" type="Panel" parent="Slots"]
 layout_mode = 0
-offset_left = 227.0
-offset_top = -122.0
-offset_right = 387.0
-offset_bottom = -21.0
+offset_left = -207.0
+offset_top = -134.0
+offset_right = 17.0
+offset_bottom = -104.0
 script = ExtResource("3_t1a3n")
 metadata/_edit_group_ = true
 

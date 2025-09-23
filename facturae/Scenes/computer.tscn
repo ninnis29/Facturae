@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmrkkr24qaeva"]
+[gd_scene load_steps=8 format=3 uid="uid://cmrkkr24qaeva"]
 
 [ext_resource type="Script" uid="uid://dvm8musneuu7t" path="res://Scripts/computer.gd" id="1_3cxpa"]
 [ext_resource type="Texture2D" uid="uid://clwq1jfxsuiv2" path="res://Assets/Pantalla.png" id="1_4xga7"]
 [ext_resource type="Texture2D" uid="uid://djpce153d85jt" path="res://Assets/A.png" id="2_7h0tq"]
 [ext_resource type="Texture2D" uid="uid://de04gsfihrlk6" path="res://Assets/b.png" id="3_3cxpa"]
 [ext_resource type="Texture2D" uid="uid://ceouqkwkqadcy" path="res://Assets/C.png" id="4_m7p0i"]
+[ext_resource type="Script" uid="uid://dm0uonecw8x5j" path="res://Scenes/continuar.gd" id="6_8u73g"]
+[ext_resource type="Texture2D" uid="uid://m7snggxcccyu" path="res://Assets/Entregar.png" id="7_iofu4"]
 
 [node name="computer" type="Node2D"]
 script = ExtResource("1_3cxpa")
@@ -13,8 +15,12 @@ script = ExtResource("1_3cxpa")
 texture = ExtResource("1_4xga7")
 
 [node name="PanelCliente" type="VBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -245.0
+offset_top = -192.0
+offset_right = 245.0
+offset_bottom = 95.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="NombreLabel" type="Label" parent="PanelCliente"]
 layout_mode = 2
@@ -60,6 +66,11 @@ offset_bottom = 81.0
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 35
 text = "Continuar"
+script = ExtResource("6_8u73g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Continuar"]
+position = Vector2(110, 35)
+texture = ExtResource("7_iofu4")
 
 [node name="Retroceder" type="Button" parent="."]
 offset_left = 11.0

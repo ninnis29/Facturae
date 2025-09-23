@@ -1,8 +1,7 @@
 extends Node2D
 @onready var caja_dialogo = $Label
 @onready var facturas = $"../Facturas"
-
-
+@onready var computer = $"../computer"
 
 func _ready() -> void:
 	factura_random()
@@ -87,7 +86,15 @@ func generacion_datos_cliente() -> void:
 	cuit_random()
 	domicilio_random()
 	condicion_iva()
+	await get_tree().process_frame
 	facturas.actualizar_informacion(cuit_cliente)
+	computer.mostrar_datos_cliente(
+		nombre_cliente,
+		apellido_cliente,
+		cuit_cliente,
+		domicilio_cliente,
+		condicion_cliente
+	)
 
 
 func nombre_completo_random() -> void: # Genera nombre

@@ -10,10 +10,11 @@ signal retroceder
 @onready var panel_seleccion = $PanelSeleccion
 @onready var panel_cliente = $PanelCliente
 
-@onready var nombre_label = $PanelCliente/NombreLabel
-@onready var cuit_label = $PanelCliente/CuitLabel
-@onready var domicilio_label = $PanelCliente/DomicilioLabel
-@onready var condicion_label = $PanelCliente/CondicionLabel
+@onready var nombre_label = get_node_or_null("PanelCliente/NombreLabel")
+@onready var cuit_label = get_node_or_null("PanelCliente/CuitLabel")
+@onready var domicilio_label = get_node_or_null("PanelCliente/DomicilioLabel")
+@onready var condicion_label = get_node_or_null("PanelCliente/CondicionLabel")
+
 
 @onready var boton_continuar = $Continuar
 @onready var boton_retroceder = $Retroceder
@@ -24,6 +25,7 @@ func _ready() -> void:
 	panel_seleccion.visible = true
 	panel_cliente.visible = false
 	boton_retroceder.visible = false
+	limpiar_datos()
 
 	# Conectar señales de botones
 	boton_continuar.pressed.connect(self._on_continuar_pressed)
@@ -65,11 +67,19 @@ func mostrar_panel_cliente() -> void:
 	boton_retroceder.visible = true
 
 # --- MOSTRAR DATOS DEL CLIENTE ---
+# Esta función será llamada desde personaje.gd
 func mostrar_datos_cliente(nombre: String, apellido: String, cuit: String, domicilio: String, condicion: String) -> void:
-	panel_seleccion.visible = false
-	panel_cliente.visible = true
+	if nombre_label != null:
+		nombre_label.text = "Nombre: %s %s" % [nombre, apellido]
+	if cuit_label != null:
+		cuit_label.text = "CUIT: %s" % cuit
+	if domicilio_label != null:
+		domicilio_label.text = "Domicilio: %s" % domicilio
+	if condicion_label != null:
+		condicion_label.text = "Condición IVA: %s" % condicion
 
-	nombre_label.text = "Nombre: %s %s" % [nombre, apellido]
-	cuit_label.text = "CUIT: %s" % cuit
-	domicilio_label.text = "Domicilio: %s" % domicilio
-	condicion_label.text = "Condición IVA: %s" % condicion
+func limpiar_datos() -> void:
+	nombre_label.text = "Nombre: "
+	cuit_label.text = "CUIT: "
+	domicilio_label.text = "Domicilio: "
+	condicion_label.text = "Condición IVA: "
