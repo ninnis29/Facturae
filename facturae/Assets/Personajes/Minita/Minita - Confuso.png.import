@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fsiety4y6tx2"
-path="res://.godot/imported/Minita - Confusa.png-b80fc439da4d48ec44945202fcc6381e.ctex"
+path="res://.godot/imported/Minita - Confuso.png-541d6e9aa15dca54e5e5f8c56becfed1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Personajes/Minita/Minita - Confusa.png"
-dest_files=["res://.godot/imported/Minita - Confusa.png-b80fc439da4d48ec44945202fcc6381e.ctex"]
+source_file="res://Assets/Personajes/Minita/Minita - Confuso.png"
+dest_files=["res://.godot/imported/Minita - Confuso.png-541d6e9aa15dca54e5e5f8c56becfed1.ctex"]
 
 [params]
 
