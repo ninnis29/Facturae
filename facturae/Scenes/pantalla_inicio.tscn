@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://wrij2uxq434j"]
+
+[ext_resource type="Texture2D" uid="uid://bfx3j807o4scs" path="res://Assets/UI/Inicio.png" id="1_4x7pe"]
+[ext_resource type="Script" uid="uid://hgwpytgcn7ja" path="res://Scripts/pantalla_inicio.gd" id="1_ody52"]
+[ext_resource type="Texture2D" uid="uid://ftafi252cf52" path="res://Assets/UI/Boton Play.png" id="2_2u15q"]
+[ext_resource type="Texture2D" uid="uid://d0fii3732jyoq" path="res://Assets/UI/Boton Play-hover.png" id="3_1n23k"]
+[ext_resource type="Texture2D" uid="uid://dd6k226u87rm2" path="res://Assets/UI/Boton Config.png" id="4_mf3xv"]
+[ext_resource type="Texture2D" uid="uid://cnyhm5pe5wve2" path="res://Assets/UI/Boton Config-hover.png" id="5_ody52"]
+[ext_resource type="Texture2D" uid="uid://bo4gqeytkrl6m" path="res://Assets/UI/Boton Salir.png" id="6_3l3nk"]
+[ext_resource type="Texture2D" uid="uid://b1uvi2w7xrf2t" path="res://Assets/UI/Boton Salir-hover.png" id="7_h8nem"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ody52")
+
+[node name="Inicio" type="Sprite2D" parent="."]
+position = Vector2(578, 327)
+texture = ExtResource("1_4x7pe")
+
+[node name="play" type="TextureButton" parent="."]
+offset_left = 526.0
+offset_top = 362.0
+offset_right = 649.0
+offset_bottom = 485.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_2u15q")
+texture_pressed = ExtResource("3_1n23k")
+texture_hover = ExtResource("3_1n23k")
+
+[node name="config" type="TextureButton" parent="."]
+offset_left = 703.0
+offset_top = 382.0
+offset_right = 826.0
+offset_bottom = 505.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_mf3xv")
+texture_pressed = ExtResource("5_ody52")
+texture_hover = ExtResource("5_ody52")
+
+[node name="exit" type="TextureButton" parent="."]
+offset_left = 343.0
+offset_top = 382.0
+offset_right = 466.0
+offset_bottom = 505.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_3l3nk")
+texture_pressed = ExtResource("7_h8nem")
+texture_hover = ExtResource("7_h8nem")
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="config" to="." method="_on_config_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
