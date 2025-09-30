@@ -61,10 +61,14 @@ func _on_boton_continuar_pressed() -> void:
 	# Validación correcta
 	elif cuit_slot_panel.current_label == personaje.cuit_cliente and seleccion_factura == cliente_factura:
 		print("Factura correcta ✅. Pasando al siguiente cliente...")
+		personaje.mood_cliente = "Feliz"
+		personaje.actualizar_sprite()
 		main.on_correcto()
-	
+		
 	else:
 		print("Factura incorrecta ❌. Perdés una vida!")
+		personaje.mood_cliente = "Enojado"
+		personaje.actualizar_sprite()
 		main.on_pierde_vida()
 		
 		# Aquí restás vida o das feedback, pero NO generás nuevo cliente

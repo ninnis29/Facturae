@@ -2,6 +2,7 @@ extends Node2D
 @onready var caja_dialogo = $Label
 @onready var facturas = $"../Facturas"
 @onready var computer = $"../computer"
+@onready var sprite: Sprite2D = $ClienteSprite
 
 func _ready() -> void:
 	factura_random()
@@ -16,9 +17,14 @@ var lista_nombres = [ # LISTA DE POSIBLES NOMBRES
 	"Juan", "Pablo", "Nahuel", "Gabriel", "Agustin", "Enrique", 
 	"Facundo", "Osvaldo", "Pedro", "Carlos"]
 
+var lista_nombres_femeninos = [ # NOMBRES FEMENINOS
+	"Morena", "Yune", "Ana", "Maria", "Lucia", "Carolina", "Julieta", "Laura",
+	"Camila", "Sofia", "Gabriela", "Rocío"
+]
+
 var lista_apellidos = [ # LISTA DE POSIBLES APELLIDOS
 	"Martinez", "Lezcano", "Ponce", "Lugano", "Fiorotto", "Richards",
-	"Schlot", "Leal", "Smith", "Lenton"]
+	"Schlot", "Leal", "Smith", "Lenton", "Bielli", "Monje"]
 
 var lista_cuits = [ # LISTA DE POSIBLES CUITS
 	"27-45219605-3",
@@ -68,6 +74,8 @@ var condicion_cliente = ""
 var cuit_secundario = ""
 
 var opcion_actual = ""
+var genero_cliente = ""
+var mood_cliente = "Normal"
 
 func factura_random() -> void:
 	var opciones = ["A", "B", "C"]
@@ -88,6 +96,8 @@ func generacion_datos_cliente() -> void:
 	generar_cuit_secundario()
 	domicilio_random()
 	condicion_iva()
+	actualizar_sprite()
+	set_mood("Normal")
 	await get_tree().process_frame
 	facturas.actualizar_informacion(cuit_cliente)
 	computer.mostrar_datos_cliente(
@@ -99,9 +109,15 @@ func generacion_datos_cliente() -> void:
 	)
 
 
-func nombre_completo_random() -> void: # Genera nombre
+func nombre_completo_random() -> void:
+	# Elegir género
+	genero_cliente = ["hombre", "mujer"].pick_random()
 	
-	nombre_cliente = lista_nombres.pick_random()
+	if genero_cliente == "hombre":
+		nombre_cliente = lista_nombres.pick_random()
+	else:
+		nombre_cliente = lista_nombres_femeninos.pick_random()
+		
 	apellido_cliente = lista_apellidos.pick_random()
 	
 	### Debug
@@ -135,4 +151,16 @@ func generar_cuit_secundario() -> void:
 	cuit_secundario = cuit_cliente
 	while cuit_secundario == cuit_cliente:
 		cuit_secundario = lista_cuits.pick_random()
+		
+func set_mood(nuevo_mood: String) -> void:
+	mood_cliente = nuevo_mood
+	actualizar_sprite()
+		
+func actualizar_sprite() -> void:
+	var ruta = ""
+	if genero_cliente == "hombre":
+		ruta = "res://Assets/Personajes/Empresario/Empresario - %s.png" % mood_cliente
+	else:
+		ruta = "res://Assets/Personajes/Minita/Minita - %s.png" % mood_cliente
 	
+	sprite.texture = load(ruta)

@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://bcnwamcc1w56l"]
+
+[ext_resource type="Script" uid="uid://17c2y0j4ybqa" path="res://Scripts/main.gd" id="1_8gbba"]
+[ext_resource type="PackedScene" uid="uid://cmrkkr24qaeva" path="res://Scenes/computer.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://dgj228606yesh" path="res://Scenes/personaje.tscn" id="2_kry3j"]
+[ext_resource type="Texture2D" uid="uid://cyhuiq8wdjj7b" path="res://Assets/Mesa1.png" id="3_344ge"]
+[ext_resource type="PackedScene" uid="uid://dka3ks6dtqqg0" path="res://Scenes/facturas.tscn" id="4_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://dfthfahcgtnhd" path="res://Assets/papel escrito.png" id="6_21xkr"]
+[ext_resource type="Texture2D" uid="uid://b6d06q4vlj81l" path="res://Assets/Fondo.png" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://da2mqnxkrv8ax" path="res://Scenes/musiquita.tscn" id="8_344ge"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_8gbba")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(968, 539)
+zoom = Vector2(0.6, 0.6)
+
+[node name="Personaje" parent="." instance=ExtResource("2_kry3j")]
+position = Vector2(916, 565)
+
+[node name="Mesa" type="Sprite2D" parent="."]
+position = Vector2(968, 941)
+texture = ExtResource("3_344ge")
+
+[node name="computer" parent="." instance=ExtResource("2_bo1nx")]
+position = Vector2(1560, 654)
+
+[node name="Facturas" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(1354, 551)
+
+[node name="Vidas" type="HBoxContainer" parent="."]
+offset_left = 1512.0
+offset_top = 20.0
+offset_right = 1932.0
+offset_bottom = 159.0
+
+[node name="Vida1" type="TextureRect" parent="Vidas"]
+layout_mode = 2
+texture = ExtResource("6_21xkr")
+
+[node name="Vida2" type="TextureRect" parent="Vidas"]
+layout_mode = 2
+texture = ExtResource("6_21xkr")
+
+[node name="Vida3" type="TextureRect" parent="Vidas"]
+layout_mode = 2
+texture = ExtResource("6_21xkr")
+
+[node name="FeedbackLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Fondo" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_as_relative = false
+position = Vector2(3201, 631)
+texture = ExtResource("7_6bp64")
+
+[node name="musiquita" parent="." instance=ExtResource("8_344ge")]
+
+[connection signal="continuar" from="computer" to="." method="_on_computer_continuar"]
+[connection signal="facturaA" from="computer" to="." method="_on_computer_factura_a"]
+[connection signal="facturaB" from="computer" to="." method="_on_computer_factura_b"]
+[connection signal="facturaC" from="computer" to="." method="_on_computer_factura_c"]

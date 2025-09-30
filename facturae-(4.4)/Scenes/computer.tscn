@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmrkkr24qaeva"]
+
+[ext_resource type="Script" uid="uid://dvm8musneuu7t" path="res://Scripts/computer.gd" id="1_3cxpa"]
+[ext_resource type="Texture2D" uid="uid://clwq1jfxsuiv2" path="res://Assets/Pantalla.png" id="1_4xga7"]
+[ext_resource type="Texture2D" uid="uid://djpce153d85jt" path="res://Assets/A.png" id="2_7h0tq"]
+[ext_resource type="Texture2D" uid="uid://de04gsfihrlk6" path="res://Assets/b.png" id="3_3cxpa"]
+[ext_resource type="Texture2D" uid="uid://ceouqkwkqadcy" path="res://Assets/C.png" id="4_m7p0i"]
+[ext_resource type="Script" uid="uid://dm0uonecw8x5j" path="res://Scenes/continuar.gd" id="6_8u73g"]
+[ext_resource type="Texture2D" uid="uid://cqfevmt1hyt57" path="res://Assets/EntregarHover.png" id="7_i500x"]
+[ext_resource type="Texture2D" uid="uid://m7snggxcccyu" path="res://Assets/Entregar.png" id="7_iofu4"]
+
+[node name="computer" type="Node2D"]
+script = ExtResource("1_3cxpa")
+
+[node name="Pantalla" type="Sprite2D" parent="."]
+texture = ExtResource("1_4xga7")
+
+[node name="PanelCliente" type="VBoxContainer" parent="."]
+offset_left = -245.0
+offset_top = -192.0
+offset_right = 245.0
+offset_bottom = 95.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NombreLabel" type="Label" parent="PanelCliente"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+
+[node name="CuitLabel" type="Label" parent="PanelCliente"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+
+[node name="DomicilioLabel" type="Label" parent="PanelCliente"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+
+[node name="CondicionLabel" type="Label" parent="PanelCliente"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+
+[node name="PanelSeleccion" type="HBoxContainer" parent="."]
+offset_left = -189.0
+offset_top = -184.0
+offset_right = 202.0
+offset_bottom = 8.0
+
+[node name="Factura A" type="Button" parent="PanelSeleccion"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("2_7h0tq")
+flat = true
+
+[node name="Factura B" type="Button" parent="PanelSeleccion"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("3_3cxpa")
+flat = true
+
+[node name="Factura C" type="Button" parent="PanelSeleccion"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("4_m7p0i")
+flat = true
+
+[node name="Continuar" type="TextureButton" parent="."]
+offset_left = -245.0
+offset_top = 19.0
+offset_right = 9.0
+offset_bottom = 74.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_iofu4")
+texture_pressed = ExtResource("7_i500x")
+texture_hover = ExtResource("7_i500x")
+script = ExtResource("6_8u73g")
+
+[node name="Retroceder" type="Button" parent="."]
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 222.0
+offset_bottom = 78.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 35
+text = "Retroceder"
+
+[connection signal="pressed" from="PanelSeleccion/Factura A" to="." method="_on_factura_a_pressed"]
+[connection signal="pressed" from="PanelSeleccion/Factura B" to="." method="_on_factura_b_pressed"]
+[connection signal="pressed" from="PanelSeleccion/Factura C" to="." method="_on_factura_c_pressed"]
+[connection signal="pressed" from="Continuar" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Retroceder" to="." method="_on_button_pressed"]

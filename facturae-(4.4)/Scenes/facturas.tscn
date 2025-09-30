@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://dka3ks6dtqqg0"]
+
+[ext_resource type="Script" uid="uid://bgdrbxwytnt1y" path="res://Scripts/facturas.gd" id="1_qqca8"]
+[ext_resource type="Script" uid="uid://bkgxjgp7xrr38" path="res://Scripts/CuitSlot.gd" id="3_t1a3n"]
+
+[sub_resource type="GDScript" id="GDScript_1iqqh"]
+script/source = "extends RichTextLabel
+
+func _get_drag_data(at_position: Vector2) -> Variant:
+	# Usar el texto actual del drag, no el CUIT del personaje
+	var data = text
+
+	var prev_label = RichTextLabel.new()
+	prev_label.text = text
+	prev_label.custom_minimum_size = Vector2(100, 100)
+	prev_label.fit_content = true
+	set_drag_preview(prev_label)
+	
+	return data
+
+func actualizar_label(cuit: String) -> void:
+	text = cuit
+"
+
+[node name="Facturas" type="Node2D"]
+script = ExtResource("1_qqca8")
+
+[node name="Facturita" type="Sprite2D" parent="."]
+position = Vector2(-898, -10.0461)
+scale = Vector2(1.16914, 1.16914)
+
+[node name="Drags" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="CuitDragLabel" type="RichTextLabel" parent="Drags"]
+layout_mode = 0
+offset_right = 112.0
+offset_bottom = 69.0
+theme_override_font_sizes/normal_font_size = 50
+fit_content = true
+autowrap_mode = 0
+script = SubResource("GDScript_1iqqh")
+metadata/_edit_use_anchors_ = true
+
+[node name="CuitDragLabel2" type="RichTextLabel" parent="Drags"]
+layout_mode = 0
+offset_right = 112.0
+offset_bottom = 69.0
+theme_override_font_sizes/normal_font_size = 50
+fit_content = true
+autowrap_mode = 0
+script = SubResource("GDScript_1iqqh")
+metadata/_edit_use_anchors_ = true
+
+[node name="Slots" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -981.0
+offset_top = -105.0
+offset_right = -941.0
+offset_bottom = -65.0
+grow_vertical = 2
+
+[node name="CuitSlotPanel" type="Panel" parent="Slots"]
+layout_mode = 0
+offset_left = -207.0
+offset_top = -134.0
+offset_right = 17.0
+offset_bottom = -104.0
+script = ExtResource("3_t1a3n")
+metadata/_edit_group_ = true
+
+[node name="CuitSlotLabel" type="RichTextLabel" parent="Slots/CuitSlotPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 100.0
+offset_bottom = 69.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 20
+fit_content = true
+autowrap_mode = 0
+
+[node name="Marker1" type="Marker2D" parent="."]
+position = Vector2(70, -238)
+
+[node name="Marker2" type="Marker2D" parent="."]
+position = Vector2(70, -164)
