@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dka3ks6dtqqg0"]
+[gd_scene load_steps=6 format=3 uid="uid://dka3ks6dtqqg0"]
 
 [ext_resource type="Script" uid="uid://bgdrbxwytnt1y" path="res://Scripts/facturas.gd" id="1_qqca8"]
+[ext_resource type="Script" uid="uid://rffx3dpf3itw" path="res://Scenes/NombreDrag.gd" id="2_t1a3n"]
 [ext_resource type="Script" uid="uid://bkgxjgp7xrr38" path="res://Scripts/CuitSlot.gd" id="3_t1a3n"]
+[ext_resource type="Script" uid="uid://bgnwp6u00x4ge" path="res://Scenes/NombreSlot.gd" id="4_jpcf5"]
 
 [sub_resource type="GDScript" id="GDScript_1iqqh"]
 script/source = "extends RichTextLabel
@@ -62,6 +64,36 @@ autowrap_mode = 0
 script = SubResource("GDScript_1iqqh")
 metadata/_edit_use_anchors_ = true
 
+[node name="NombreDragLabel" type="RichTextLabel" parent="Drags"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = -1.775
+anchor_right = 0.125
+anchor_bottom = -1.775
+offset_right = 112.0
+offset_bottom = 69.0
+theme_override_font_sizes/normal_font_size = 50
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("2_t1a3n")
+metadata/_edit_use_anchors_ = true
+
+[node name="NombreDragLabel2" type="RichTextLabel" parent="Drags"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = -1.75
+anchor_right = 0.125
+anchor_bottom = -1.75
+offset_right = 112.0
+offset_bottom = 69.0
+theme_override_font_sizes/normal_font_size = 50
+fit_content = true
+autowrap_mode = 0
+script = SubResource("GDScript_1iqqh")
+metadata/_edit_use_anchors_ = true
+
 [node name="Slots" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 4
@@ -76,13 +108,32 @@ grow_vertical = 2
 [node name="CuitSlotPanel" type="Panel" parent="Slots"]
 layout_mode = 0
 offset_left = -207.0
-offset_top = -134.0
+offset_top = -132.0
 offset_right = 17.0
-offset_bottom = -104.0
+offset_bottom = -102.0
 script = ExtResource("3_t1a3n")
 metadata/_edit_group_ = true
 
 [node name="CuitSlotLabel" type="RichTextLabel" parent="Slots/CuitSlotPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 100.0
+offset_bottom = 69.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 20
+fit_content = true
+autowrap_mode = 0
+
+[node name="NombreSlotPanel" type="Panel" parent="Slots"]
+layout_mode = 0
+offset_left = -206.0
+offset_top = -194.0
+offset_right = 18.0
+offset_bottom = -164.0
+script = ExtResource("4_jpcf5")
+metadata/_edit_group_ = true
+
+[node name="NombreSlotLabel" type="RichTextLabel" parent="Slots/NombreSlotPanel"]
 layout_mode = 0
 offset_left = 8.0
 offset_right = 100.0

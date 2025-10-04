@@ -4,13 +4,18 @@ extends Node2D
 @onready var personaje: Node2D = $"../Personaje"
 @onready var main = $"../"
 
-# Drags correctos e incorrectos
+# Drags correctos e incorrectos de CUIT
 var drag_correcto_label: RichTextLabel = null
 var drag_incorrecto_label: RichTextLabel = null
+# Drags de Nombre
+var drag_correcto_nombre_label: RichTextLabel = null
+var drag_incorrecto_nombre_label: RichTextLabel = null
 
 @onready var boton_continuar = get_node("/root/Main/computer/Continuar")
 @onready var slot_cuit_label: RichTextLabel = $Slots/CuitSlotPanel/CuitSlotLabel
 @onready var cuit_slot_panel: Panel = $Slots/CuitSlotPanel
+@onready var slot_nombre_label: RichTextLabel = $Slots/NombreSlotPanel/NombreSlotLabel
+@onready var nombre_slot_panel: Panel = $Slots/NombreSlotPanel
 @onready var marker_1: Marker2D = $Marker1
 @onready var marker_2: Marker2D = $Marker2
 
@@ -38,8 +43,14 @@ func _ready() -> void:
 	drag_correcto_label = get_node_or_null("Drags/CuitDragLabel")
 	drag_incorrecto_label = get_node_or_null("Drags/CuitDragLabel2")
 	
+	drag_correcto_nombre_label = get_node_or_null("Drags/NombreDragLabel")
+	drag_incorrecto_nombre_label = get_node_or_null("Drags/NombreDragLabel2")
+	
 	if drag_correcto_label == null or drag_incorrecto_label == null:
-		push_error("No se encontraron los drags en la escena Facturas!")
+		push_error("No se encontraron los drags de CUIT en la escena Facturas!")
+		
+	if drag_correcto_nombre_label == null or drag_incorrecto_nombre_label == null:
+		push_error("No se encontraron los drags de NOMBRE en la escena Facturas!")
 	
 	# Conectamos el botón
 	boton_continuar.pressed.connect(_on_boton_continuar_pressed)
@@ -51,29 +62,41 @@ func _ready() -> void:
 func _on_boton_continuar_pressed() -> void:
 	print("Drag incorrecto:")
 	print(drag_incorrecto_label.text)
-	print("Current label:")
+	print("Current CUIT label:")
 	print(cuit_slot_panel.current_label)
+	print("Current Nombre label:")
+	print(slot_nombre_label.text)
+
+	# -------------------------
+	# 1) Slots vacíos
+	# -------------------------
+	if cuit_slot_panel.current_label == "" and slot_nombre_label.text == "":
+		print("No se puede continuar: Datos incompletos.")
+		return
 	
-	# Slot vacío
-	if cuit_slot_panel.current_label == "":
-		print("No se puede continuar: el CUIT está vacío.")
-		
-	# Validación correcta
-	elif cuit_slot_panel.current_label == personaje.cuit_cliente and seleccion_factura == cliente_factura:
-		print("Factura correcta ✅. Pasando al siguiente cliente...")
+	# -------------------------
+	# 3) Validación correcta
+	# -------------------------
+	elif slot_nombre_label.text == personaje.nombre_cliente and seleccion_factura and cuit_slot_panel.current_label == personaje.cuit_cliente and seleccion_factura == cliente_factura:
+		print("Factura correcta ✅ (validación por Nombre). Pasando al siguiente cliente...")
 		personaje.mood_cliente = "Feliz"
 		personaje.actualizar_sprite()
 		main.on_correcto()
-		
+	
+	# -------------------------
+	# 4) En cualquier otro caso → incorrecto
+	# -------------------------
 	else:
 		print("Factura incorrecta ❌. Perdés una vida!")
 		personaje.mood_cliente = "Enojado"
 		personaje.actualizar_sprite()
 		main.on_pierde_vida()
-		
-		# Aquí restás vida o das feedback, pero NO generás nuevo cliente
-	
+
+	# -------------------------
+	# 5) Reset de slots
+	# -------------------------
 	reset_drag_slot()
+
 
 
 # ------------------------------
@@ -103,12 +126,14 @@ func mostrar_factura(opcion: String) -> void:
 	
 	# Generar drags al mostrar la factura
 	mostrar_drags()
+	mostrar_drags_nombre()
 
 func esconder_factura() -> void:
 	factura_sprite.visible = false
 	$Drags.visible = false
 	$Slots.visible = false
 	esconder_drags()
+	esconder_drags_nombre()
 	reset_drag_slot()
 
 # ------------------------------
@@ -157,6 +182,28 @@ func esconder_drags() -> void:
 		drag_correcto_label.visible = false
 	if drag_incorrecto_label != null:
 		drag_incorrecto_label.visible = false
+
+func mostrar_drags_nombre() -> void:
+	if drag_correcto_nombre_label == null or drag_incorrecto_nombre_label == null:
+		return
+	# Drag correcto → el nombre real
+	drag_correcto_nombre_label.text = personaje.nombre_cliente
+	drag_correcto_nombre_label.visible = true
+	
+	# Drag incorrecto → un nombre falso
+	var nombre_falso = personaje.nombre_cliente
+	drag_incorrecto_nombre_label.actualizar_label(nombre_falso)
+	drag_incorrecto_nombre_label.visible = true
+	
+	
+	drags_random_position()
+
+func esconder_drags_nombre() -> void:
+	if drag_correcto_nombre_label != null:
+		drag_correcto_nombre_label.visible = false
+	if drag_incorrecto_nombre_label != null:
+		drag_incorrecto_nombre_label.visible = false
+
 
 # ------------------------------
 # Generar CUIT falso
