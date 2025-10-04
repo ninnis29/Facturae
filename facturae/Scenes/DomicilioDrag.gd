@@ -1,7 +1,7 @@
 extends RichTextLabel
 
 func _get_drag_data(at_position: Vector2) -> Variant:
-	# Usar el texto actual del drag, no el NOMBRE del personaje
+	# Usar el texto actual del drag, no el DOMICILIO del personaje
 	var data = text
 
 	var prev_label = RichTextLabel.new()
@@ -12,5 +12,5 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	
 	return data
 
-func actualizar_label(nombre: String) -> void:
-	text = nombre
+func actualizar_label(domicilio: String) -> void:
+	text = domicilio

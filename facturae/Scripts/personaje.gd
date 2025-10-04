@@ -96,7 +96,7 @@ func nueva_peticion() -> void:
 func generacion_datos_cliente() -> void: 
 	nombre_completo_random()
 	cuit_random()
-	generar_cuit_secundario()
+	generar_datos_secundarios()
 	domicilio_random()
 	condicion_iva()
 	actualizar_sprite()
@@ -136,7 +136,6 @@ func cuit_random() -> void: # Genera CUIT
 	#print(cuit_cliente)
 
 func domicilio_random() -> void: # Genera Domicilio agrupando Calle + Altura
-	
 	domicilio_cliente = lista_domicilio_calle.pick_random() + " " + lista_domicilio_altura.pick_random()
 	
 	### Debug
@@ -150,11 +149,19 @@ func condicion_iva() -> void:
 	#print("------ CONDICION ------")
 	#print(condicion_cliente)
 
-func generar_cuit_secundario() -> void:
+func generar_datos_secundarios() -> void:
 	cuit_secundario = cuit_cliente
 	while cuit_secundario == cuit_cliente:
 		cuit_secundario = lista_cuits.pick_random()
-		
+	nombre_secundario = nombre_cliente
+	while nombre_secundario == nombre_cliente:
+		if genero_cliente == "hombre":
+			nombre_cliente = lista_nombres.pick_random()
+		else:
+			nombre_cliente = lista_nombres_femeninos.pick_random()
+	domicilio_secundario = domicilio_cliente
+	while domicilio_secundario == domicilio_cliente:
+		domicilio_secundario = lista_domicilio_calle.pick_random() + " " + lista_domicilio_altura.pick_random()
 func set_mood(nuevo_mood: String) -> void:
 	mood_cliente = nuevo_mood
 	actualizar_sprite()
