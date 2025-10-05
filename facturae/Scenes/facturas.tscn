@@ -98,14 +98,17 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DomicilioDragLabel" type="RichTextLabel" parent="Drags"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 523.0
+offset_bottom = 84.0
+theme_override_font_sizes/normal_font_size = 50
+fit_content = true
 script = ExtResource("3_kryeg")
 
 [node name="DomicilioDragLabel2" type="RichTextLabel" parent="Drags"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 529.0
+offset_bottom = 88.0
+theme_override_font_sizes/normal_font_size = 50
 script = ExtResource("3_kryeg")
 
 [node name="Slots" type="Control" parent="."]
@@ -174,10 +177,10 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="Marker1" type="Marker2D" parent="."]
-position = Vector2(-265, -332)
+position = Vector2(-265, -342)
 
 [node name="Marker2" type="Marker2D" parent="."]
-position = Vector2(172, -332)
+position = Vector2(172, -342)
 
 [node name="Marker3" type="Marker2D" parent="."]
 position = Vector2(-265, -256)
@@ -195,4 +198,4 @@ position = Vector2(175, -167)
 position = Vector2(-263, -91)
 
 [node name="Marker8" type="Marker2D" parent="."]
-position = Vector2(174, -91)
+position = Vector2(179, -91)
