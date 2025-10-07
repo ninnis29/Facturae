@@ -29,10 +29,9 @@ var drag_incorrecto_domicilio_label: RichTextLabel = null
 @onready var marker_6: Marker2D = $Marker6
 @onready var marker_7: Marker2D = $Marker7
 @onready var marker_8: Marker2D = $Marker8
-<<<<<<< Updated upstream
-=======
+
 @onready var color_overlay = $"../ColorOverlay"
->>>>>>> Stashed changes
+
 
 
 var factura_a = preload("res://Assets/Facturita_A.png")
@@ -77,9 +76,7 @@ func _ready() -> void:
 	
 # Botón continuar -> validación
 func _on_boton_continuar_pressed() -> void:
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
+
 	
 	print("Drag incorrecto:")
 	print(drag_incorrecto_label.text)
@@ -89,20 +86,6 @@ func _on_boton_continuar_pressed() -> void:
 	print(slot_nombre_label.text)
 	print("Current Domicilio label:")
 	print(slot_domicilio_label.text)
-=======
->>>>>>> Stashed changes
-	#print("Drag incorrecto:")
-	#print(drag_incorrecto_label.text)
-	#print("Current CUIT label:")
-	#print(cuit_slot_panel.current_label)
-	#print("Current Nombre label:")
-	#print(slot_nombre_label.text)
-	#print("Current Domicilio label:")
-	#print(slot_domicilio_label.text)
-<<<<<<< Updated upstream
-=======
->>>>>>> 2d36f8587783d1e0df05580ea50622e02ccdf897
->>>>>>> Stashed changes
 
 	# 1) Slots vacíos
 	if cuit_slot_panel.current_label == "" or slot_nombre_label.text == "" or slot_domicilio_label.text == "":

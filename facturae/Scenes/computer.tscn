@@ -25,19 +25,19 @@ size_flags_vertical = 3
 
 [node name="NombreLabel" type="Label" parent="PanelCliente"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 
 [node name="CuitLabel" type="Label" parent="PanelCliente"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 
 [node name="DomicilioLabel" type="Label" parent="PanelCliente"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 
 [node name="CondicionLabel" type="Label" parent="PanelCliente"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 
 [node name="PanelSeleccion" type="HBoxContainer" parent="."]
 offset_left = -189.0
