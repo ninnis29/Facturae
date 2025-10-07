@@ -162,7 +162,7 @@ autowrap_mode = 0
 layout_mode = 0
 offset_left = -181.0
 offset_top = -76.0
-offset_right = 43.0
+offset_right = 131.0
 offset_bottom = -46.0
 script = ExtResource("6_k3qap")
 

@@ -30,9 +30,6 @@ var drag_incorrecto_domicilio_label: RichTextLabel = null
 @onready var marker_7: Marker2D = $Marker7
 @onready var marker_8: Marker2D = $Marker8
 
-signal correcto
-signal pierde_vida
-
 
 var factura_a = preload("res://Assets/Facturita_A.png")
 var factura_b = preload("res://Assets/Facturita_B.png")
@@ -74,17 +71,17 @@ func _ready() -> void:
 	
 # Botón continuar -> validación
 func _on_boton_continuar_pressed() -> void:
-	print("Drag incorrecto:")
-	print(drag_incorrecto_label.text)
-	print("Current CUIT label:")
-	print(cuit_slot_panel.current_label)
-	print("Current Nombre label:")
-	print(slot_nombre_label.text)
-	print("Current Domicilio label:")
-	print(slot_domicilio_label.text)
+	#print("Drag incorrecto:")
+	#print(drag_incorrecto_label.text)
+	#print("Current CUIT label:")
+	#print(cuit_slot_panel.current_label)
+	#print("Current Nombre label:")
+	#print(slot_nombre_label.text)
+	#print("Current Domicilio label:")
+	#print(slot_domicilio_label.text)
 
 	# 1) Slots vacíos
-	if cuit_slot_panel.current_label == "" and slot_nombre_label.text == "":
+	if cuit_slot_panel.current_label == "" or slot_nombre_label.text == "" or slot_domicilio_label.text == "":
 		print("No se puede continuar: Datos incompletos.")
 		return
 	
@@ -134,7 +131,7 @@ func mostrar_factura(opcion: String) -> void:
 	$Slots.visible = true
 
 	# Generar drags al mostrar la factura
-	mostrar_drags()
+	mostrar_drags_cuit()
 	mostrar_drags_nombre()
 	mostrar_drags_domicilio()
 	
@@ -155,7 +152,7 @@ func actualizar_informacion(cuit_cliente: String) -> void:
 		push_error("drag_correcto_label es null al llamar actualizar_informacion")
 
 # DRAGS
-func mostrar_drags() -> void:
+func mostrar_drags_cuit() -> void:
 	if drag_correcto_label == null or drag_incorrecto_label == null:
 		return
 	
