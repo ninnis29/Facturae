@@ -16,7 +16,7 @@ script = ExtResource("1_3cxpa")
 texture = ExtResource("1_4xga7")
 
 [node name="PanelCliente" type="VBoxContainer" parent="."]
-offset_left = -245.0
+offset_left = -240.0
 offset_top = -192.0
 offset_right = 245.0
 offset_bottom = 95.0
@@ -25,19 +25,19 @@ size_flags_vertical = 3
 
 [node name="NombreLabel" type="Label" parent="PanelCliente"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 
 [node name="CuitLabel" type="Label" parent="PanelCliente"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 
 [node name="DomicilioLabel" type="Label" parent="PanelCliente"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 
 [node name="CondicionLabel" type="Label" parent="PanelCliente"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 
 [node name="PanelSeleccion" type="HBoxContainer" parent="."]
 offset_left = -189.0
@@ -64,9 +64,9 @@ icon = ExtResource("4_m7p0i")
 flat = true
 
 [node name="Continuar" type="TextureButton" parent="."]
-offset_left = -245.0
+offset_left = -238.0
 offset_top = 19.0
-offset_right = 9.0
+offset_right = 16.0
 offset_bottom = 74.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("7_iofu4")
@@ -75,9 +75,9 @@ texture_hover = ExtResource("7_i500x")
 script = ExtResource("6_8u73g")
 
 [node name="Retroceder" type="Button" parent="."]
-offset_left = 11.0
+offset_left = 18.0
 offset_top = 11.0
-offset_right = 222.0
+offset_right = 229.0
 offset_bottom = 78.0
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 35

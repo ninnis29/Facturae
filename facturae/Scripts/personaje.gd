@@ -93,7 +93,7 @@ func nueva_peticion() -> void:
 
 
 ## GENERACION DE TODOS LOS DATOS DE UNA. Invocado a la hora de crear una nueva peticion (factura_random() )
-func generacion_datos_cliente() -> void: 
+func generacion_datos_cliente() -> void:
 	nombre_completo_random()
 	cuit_random()
 	generar_datos_secundarios()
