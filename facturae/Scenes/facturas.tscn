@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dka3ks6dtqqg0"]
+[gd_scene load_steps=9 format=3 uid="uid://dka3ks6dtqqg0"]
 
 [ext_resource type="Script" uid="uid://bgdrbxwytnt1y" path="res://Scripts/facturas.gd" id="1_qqca8"]
+[ext_resource type="Texture2D" uid="uid://cvr47jeve8xy" path="res://Assets/Facturita_A.png" id="2_k3qap"]
 [ext_resource type="Script" uid="uid://rffx3dpf3itw" path="res://Scenes/NombreDrag.gd" id="2_t1a3n"]
 [ext_resource type="Script" uid="uid://bntrg3oaddili" path="res://Scenes/DomicilioDrag.gd" id="3_kryeg"]
 [ext_resource type="Script" uid="uid://bkgxjgp7xrr38" path="res://Scripts/CuitSlot.gd" id="3_t1a3n"]
@@ -30,8 +31,9 @@ func actualizar_label(cuit: String) -> void:
 script = ExtResource("1_qqca8")
 
 [node name="Facturita" type="Sprite2D" parent="."]
-position = Vector2(-898, -10.0461)
-scale = Vector2(1.16914, 1.16914)
+position = Vector2(-898, -74.0461)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_k3qap")
 
 [node name="Drags" type="Control" parent="."]
 layout_mode = 3
@@ -45,6 +47,7 @@ offset_top = -20.0
 offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="CuitDragLabel" type="RichTextLabel" parent="Drags"]
 layout_mode = 0
@@ -103,6 +106,7 @@ offset_bottom = 84.0
 theme_override_font_sizes/normal_font_size = 50
 fit_content = true
 script = ExtResource("3_kryeg")
+metadata/_edit_use_anchors_ = true
 
 [node name="DomicilioDragLabel2" type="RichTextLabel" parent="Drags"]
 layout_mode = 0
@@ -110,24 +114,26 @@ offset_right = 529.0
 offset_bottom = 88.0
 theme_override_font_sizes/normal_font_size = 50
 script = ExtResource("3_kryeg")
+metadata/_edit_use_anchors_ = true
 
 [node name="Slots" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -981.0
-offset_top = -105.0
-offset_right = -941.0
-offset_bottom = -65.0
+offset_left = -908.0
+offset_top = -123.0
+offset_right = -868.0
+offset_bottom = -83.0
 grow_vertical = 2
 
 [node name="CuitSlotPanel" type="Panel" parent="Slots"]
 layout_mode = 0
 offset_left = -226.0
-offset_top = -132.0
+offset_top = -126.0
 offset_right = -2.0
-offset_bottom = -102.0
+offset_bottom = -96.0
+scale = Vector2(0.8, 0.8)
 script = ExtResource("3_t1a3n")
 
 [node name="CuitSlotLabel" type="RichTextLabel" parent="Slots/CuitSlotPanel"]
@@ -142,10 +148,11 @@ autowrap_mode = 0
 
 [node name="NombreSlotPanel" type="Panel" parent="Slots"]
 layout_mode = 0
-offset_left = -206.0
-offset_top = -194.0
-offset_right = 18.0
-offset_bottom = -164.0
+offset_left = -208.0
+offset_top = -175.0
+offset_right = 16.0
+offset_bottom = -145.0
+scale = Vector2(0.8, 0.8)
 script = ExtResource("4_jpcf5")
 
 [node name="NombreSlotLabel" type="RichTextLabel" parent="Slots/NombreSlotPanel"]
@@ -160,10 +167,11 @@ autowrap_mode = 0
 
 [node name="DomicilioSlotPanel" type="Panel" parent="Slots"]
 layout_mode = 0
-offset_left = -181.0
-offset_top = -76.0
-offset_right = 131.0
-offset_bottom = -46.0
+offset_left = -196.0
+offset_top = -82.0
+offset_right = 116.0
+offset_bottom = -52.0
+scale = Vector2(0.8, 0.8)
 script = ExtResource("6_k3qap")
 
 [node name="DomicilioSlotLabel" type="RichTextLabel" parent="Slots/DomicilioSlotPanel"]
@@ -177,25 +185,25 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="Marker1" type="Marker2D" parent="."]
-position = Vector2(-399, -342)
+position = Vector2(-1166, 427)
 
 [node name="Marker2" type="Marker2D" parent="."]
-position = Vector2(106, -342)
+position = Vector2(-661, 427)
 
 [node name="Marker3" type="Marker2D" parent="."]
-position = Vector2(-399, -256)
+position = Vector2(-1166, 513)
 
 [node name="Marker4" type="Marker2D" parent="."]
-position = Vector2(107, -256)
+position = Vector2(-660, 513)
 
 [node name="Marker5" type="Marker2D" parent="."]
-position = Vector2(-399, -169)
+position = Vector2(-1166, 600)
 
 [node name="Marker6" type="Marker2D" parent="."]
-position = Vector2(109, -167)
+position = Vector2(-658, 602)
 
 [node name="Marker7" type="Marker2D" parent="."]
-position = Vector2(-397, -91)
+position = Vector2(-1164, 678)
 
 [node name="Marker8" type="Marker2D" parent="."]
-position = Vector2(113, -91)
+position = Vector2(-654, 678)

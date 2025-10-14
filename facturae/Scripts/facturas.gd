@@ -120,7 +120,7 @@ func _on_boton_continuar_pressed() -> void:
 
 # Mostrar factura y drags
 func mostrar_factura(opcion: String) -> void:
-	color_overlay.visible = true
+	#color_overlay.visible = true
 	visible = true
 	factura_sprite.visible = true
 	match opcion:

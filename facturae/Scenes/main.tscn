@@ -21,20 +21,22 @@ zoom = Vector2(0.6, 0.6)
 position = Vector2(916, 565)
 
 [node name="Mesa" type="Sprite2D" parent="."]
-position = Vector2(968, 538)
+position = Vector2(968, 586)
 texture = ExtResource("3_344ge")
 
 [node name="ColorOverlay" type="ColorRect" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(48.19973, 26.977318)
 color = Color(0, 0, 0, 0.69803923)
 
 [node name="computer" parent="." instance=ExtResource("2_bo1nx")]
-position = Vector2(1560, 654)
+position = Vector2(1560, 686)
 
 [node name="Facturas" parent="." instance=ExtResource("4_jjvhh")]
-position = Vector2(1354, 551)
+position = Vector2(1072.0002, 449.00006)
+scale = Vector2(0.85, 0.85)
 
 [node name="Vidas" type="HBoxContainer" parent="."]
 offset_left = 1512.0
