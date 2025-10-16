@@ -17,27 +17,27 @@ var vidas: int = 3
 
 func _ready():
 	# Reproduce la musica al ser invocado. Si se usa autoplay se buguea cuando se reinicia la escena.
-	musiquita.reproducir_musica()
+	musiquita.reproducirMusica()
 
 
 func _on_computer_factura_a() -> void:
-	facturas.mostrar_factura("A")
-	seleccionar_opcion("A")
+	facturas.mostrarDatosDeFactura("A")
+	seleccionarModeloDeFactura("A")
 
 func _on_computer_factura_b() -> void:
-	facturas.mostrar_factura("B")
-	seleccionar_opcion("B")
+	facturas.mostrarDatosDeFactura("B")
+	seleccionarModeloDeFactura("B")
 
 func _on_computer_factura_c() -> void:
-	facturas.mostrar_factura("C")
-	seleccionar_opcion("C")
+	facturas.mostrarDatosDeFactura("C")
+	seleccionarModeloDeFactura("C")
 
-func seleccionar_opcion(opcion: String) -> void:
+func seleccionarModeloDeFactura(opcion: String) -> void:
 	continuar_btn.visible = true
 	seleccion_jugador = opcion
 
 
-func perder_vida() -> void:
+func perderVida() -> void:
 
 	vidas -= 1
 
@@ -47,34 +47,34 @@ func perder_vida() -> void:
 		vida_node.texture = preload("res://Assets/papel arrugado.png")  # cambia la textura
 
 	if vidas <= 0:
-		game_over()
-		facturas.esconder_factura()
+		finalizarPartida()
+		facturas.esconderDatosDeFactura()
 	else:
-		continuar_partida()
+		continuarPartida()
 
-func continuar_partida() -> void:
+func continuarPartida() -> void:
 	await get_tree().create_timer(1.0).timeout
-	personaje.nueva_peticion()  # esto genera un nuevo diálogo aleatorio
+	personaje.generarNuevoCliente()  # esto genera un nuevo diálogo aleatorio
 	seleccion_jugador = ""
 	# Solo limpiamos feedback, no el pedido del personaje
 	# feedback_label.text = ""  # si tenés un Label separado para mensajes
-	facturas.esconder_factura()
+	facturas.esconderDatosDeFactura()
 
-func game_over() -> void:
+func finalizarPartida() -> void:
 	label_pj.text = "¡Se acabaron las facturas! :("
 	await get_tree().create_timer(2.0).timeout
-	musiquita.frenar_musica() # Si o si tiene que estar esto sino se buguea al reiniciar :) 
+	musiquita.frenarMusica() # Si o si tiene que estar esto sino se buguea al reiniciar :) 
 	get_tree().reload_current_scene()
 
 
 func on_correcto() -> void:
-	facturas.esconder_factura()
+	facturas.esconderDatosDeFactura()
 	label_pj.text = "¡Gracias! :D"
 	await get_tree().create_timer(2.0).timeout
-	continuar_partida()
+	continuarPartida()
 
 func on_pierde_vida() -> void:
-	facturas.esconder_factura()
+	facturas.esconderDatosDeFactura()
 	label_pj.text = "Eso no fue lo que pedí :C"
 	await get_tree().create_timer(2.0).timeout
-	perder_vida()
+	perderVida()

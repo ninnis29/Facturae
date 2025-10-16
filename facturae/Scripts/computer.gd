@@ -25,7 +25,7 @@ func _ready() -> void:
 	panel_seleccion.visible = true
 	panel_cliente.visible = false
 	boton_retroceder.visible = false
-	limpiar_datos()
+	limpiarDatosDeFactura()
 
 	# Conectar señales de botones
 	boton_continuar.pressed.connect(self._on_continuar_pressed)
@@ -34,15 +34,15 @@ func _ready() -> void:
 # --- BOTONES PANEL SELECCIÓN ---
 func _on_factura_a_pressed() -> void:
 	emit_signal("facturaA")
-	mostrar_panel_cliente()
+	habilitarBotonesDeInteraccion()
 
 func _on_factura_b_pressed() -> void:
 	emit_signal("facturaB")
-	mostrar_panel_cliente()
+	habilitarBotonesDeInteraccion()
 
 func _on_factura_c_pressed() -> void:
 	emit_signal("facturaC")
-	mostrar_panel_cliente()
+	habilitarBotonesDeInteraccion()
 
 func _on_continuar_pressed() -> void:
 	emit_signal("continuar")
@@ -57,18 +57,18 @@ func _on_retroceder_pressed() -> void:
 	boton_retroceder.visible = false
 	# Llamamos a Facturas para resetear su UI
 	var facturas_node = get_node("/root/Main/Facturas")
-	facturas_node.esconder_factura()        # Oculta la factura y resetea drags/slots
+	facturas_node.esconderDatosDeFactura()        # Oculta la factura y resetea drags/slots
 	emit_signal("retroceder")
 
 # --- FUNCION AUXILIAR ---
-func mostrar_panel_cliente() -> void:
+func habilitarBotonesDeInteraccion() -> void:
 	panel_seleccion.visible = false
 	panel_cliente.visible = true
 	boton_retroceder.visible = true
 
 # --- MOSTRAR DATOS DEL CLIENTE ---
 # Esta función será llamada desde personaje.gd
-func mostrar_datos_cliente(nombre: String, apellido: String, cuit: String, domicilio: String, condicion: String) -> void:
+func mostrarDatosDeCliente(nombre: String, apellido: String, cuit: String, domicilio: String, condicion: String) -> void:
 	if nombre_label != null:
 		nombre_label.text = "Nombre: %s %s" % [nombre, apellido]
 	if cuit_label != null:
@@ -78,7 +78,7 @@ func mostrar_datos_cliente(nombre: String, apellido: String, cuit: String, domic
 	if condicion_label != null:
 		condicion_label.text = "Condición IVA: %s" % condicion
 
-func limpiar_datos() -> void:
+func limpiarDatosDeFactura() -> void:
 	nombre_label.text = "Nombre: "
 	cuit_label.text = "CUIT: "
 	domicilio_label.text = "Domicilio: "

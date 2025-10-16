@@ -5,7 +5,7 @@ extends Node2D
 @onready var sprite: Sprite2D = $ClienteSprite
 
 func _ready() -> void:
-	factura_random()
+	generarFacturaDeCliente()
 
 var dialogos = {
 	"A": ["Podria darme la factura A?", "Deme factura A"],
@@ -80,30 +80,27 @@ var opcion_actual = ""
 var genero_cliente = ""
 var mood_cliente = "Normal"
 
-func factura_random() -> void:
+func generarFacturaDeCliente() -> void:
 	var opciones = ["A", "B", "C"]
 	opcion_actual = opciones.pick_random()
 	var linea_dialogo = dialogos[opcion_actual].pick_random()
 	caja_dialogo.text = linea_dialogo
 	facturas.cliente_factura = opcion_actual
-	generacion_datos_cliente()
+	generacionDeDatosDeCliente()
 
-func nueva_peticion() -> void:
-	factura_random()
+func generarNuevoCliente() -> void:
+	generarFacturaDeCliente()
 
 
 ## GENERACION DE TODOS LOS DATOS DE UNA. Invocado a la hora de crear una nueva peticion (factura_random() )
-func generacion_datos_cliente() -> void:
-	nombre_completo_random()
-	cuit_random()
-	generar_datos_secundarios()
-	domicilio_random()
-	condicion_iva()
-	actualizar_sprite()
-	set_mood("Normal")
+func generacionDeDatosDeCliente() -> void:
+	generarDatosPrimariosAleatorios()
+	generarDatosSecundariosAleatorios()
+	actualizarEstadoDeCliente()
+	cambiarEstadoDeCliente("Normal")
 	await get_tree().process_frame
-	facturas.actualizar_informacion(cuit_cliente)
-	computer.mostrar_datos_cliente(
+	facturas.actualizarInformacionDeCliente(cuit_cliente)
+	computer.mostrarDatosDeCliente(
 		nombre_cliente,
 		apellido_cliente,
 		cuit_cliente,
@@ -112,7 +109,7 @@ func generacion_datos_cliente() -> void:
 	)
 
 
-func nombre_completo_random() -> void:
+func generarNombreCompletoAleatorio() -> void:
 	# Elegir género
 	genero_cliente = ["hombre", "mujer"].pick_random()
 	
@@ -128,45 +125,68 @@ func nombre_completo_random() -> void:
 	#print(nombre_cliente)
 	#print(apellido_cliente)
 
-func cuit_random() -> void: # Genera CUIT
+func generarCUITAleatorio() -> void: # Genera CUIT
 	cuit_cliente = lista_cuits.pick_random()
 	
 	### Debug
 	#print("------ CUIT ------")
 	#print(cuit_cliente)
 
-func domicilio_random() -> void: # Genera Domicilio agrupando Calle + Altura
+func generarDomicilioAleatorio() -> void: # Genera Domicilio agrupando Calle + Altura
 	domicilio_cliente = lista_domicilio_calle.pick_random() + " " + lista_domicilio_altura.pick_random()
 	
 	### Debug
 	#print("------ DIRECCION ------")
 	#print(domicilio_cliente)
 
-func condicion_iva() -> void:
+func generarCondicionIVAAleatorio() -> void:
 	condicion_cliente = lista_condiciones_iva.pick_random()
 	
 	### Debug
 	#print("------ CONDICION ------")
 	#print(condicion_cliente)
 
-func generar_datos_secundarios() -> void:
-	cuit_secundario = cuit_cliente
-	while cuit_secundario == cuit_cliente:
-		cuit_secundario = lista_cuits.pick_random()
+func generarDatosPrimariosAleatorios() -> void:
+	generarNombreCompletoAleatorio()
+	generarCUITAleatorio()
+	generarDomicilioAleatorio()
+	generarCondicionIVAAleatorio()
+	
+func generarDatosSecundariosAleatorios() -> void:
+	generarNombreCompletoSecundarioAleatorio()
+	generarCuitSecundarioAleatorio()
+	generarDomicilioSecundarioAleatorio()
+	generarCondicionIVASecundarioAleatorio()
+	
+
+func generarNombreCompletoSecundarioAleatorio() -> void:
 	nombre_secundario = nombre_cliente
 	while nombre_secundario == nombre_cliente:
 		if genero_cliente == "hombre":
 			nombre_cliente = lista_nombres.pick_random()
 		else:
 			nombre_cliente = lista_nombres_femeninos.pick_random()
+
+func generarCuitSecundarioAleatorio() -> void:
+	cuit_secundario = cuit_cliente
+	while cuit_secundario == cuit_cliente:
+		cuit_secundario = lista_cuits.pick_random()
+	
+func generarDomicilioSecundarioAleatorio() -> void:
 	domicilio_secundario = domicilio_cliente
 	while domicilio_secundario == domicilio_cliente:
 		domicilio_secundario = lista_domicilio_calle.pick_random() + " " + lista_domicilio_altura.pick_random()
-func set_mood(nuevo_mood: String) -> void:
+	
+func generarCondicionIVASecundarioAleatorio() -> void:
+	condicion_secundario = condicion_cliente
+	while condicion_secundario == condicion_cliente:
+		condicion_secundario = lista_condiciones_iva.pick_random()
+	
+func cambiarEstadoDeCliente(nuevo_mood: String) -> void:
 	mood_cliente = nuevo_mood
-	actualizar_sprite()
+	actualizarEstadoDeCliente()
 		
-func actualizar_sprite() -> void:
+func actualizarEstadoDeCliente() -> void:
 	var ruta = ""
 	if genero_cliente == "hombre":
 		ruta = "res://Assets/Personajes/Empresario/Empresario - %s.png" % mood_cliente

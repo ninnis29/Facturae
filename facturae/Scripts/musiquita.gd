@@ -1,8 +1,8 @@
 extends Node2D
 @onready var musica: AudioStreamPlayer2D = $musica
 
-func reproducir_musica():
+func reproducirMusica():
 	musica.play()
 
-func frenar_musica():
+func frenarMusica():
 	musica.stop()

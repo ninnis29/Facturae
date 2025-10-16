@@ -101,25 +101,21 @@ func _on_boton_continuar_pressed() -> void:
 	
 	# 4) En cualquier otro caso → incorrecto
 	else:
+		var errores := []
 		if slot_nombre_label.text != personaje.nombre_cliente:
-			print("Nombre incorrecto ❌. Perdés una vida!")
-		elif cuit_slot_panel.current_label != personaje.cuit_cliente:
-			print("CUIT incorrecto ❌. Perdés una vida!")
-		elif domicilio_slot_panel.current_label != personaje.domicilio_cliente:
-			print("Domicilio incorrecto ❌. Perdés una vida!")
-		elif seleccion_factura == cliente_factura:
-			print("Factura incorrecta ❌. Perdés una vida!")
-		else:
-			print("Datos solicitados incorrectos ❌. Perdés una vida!")
-		personaje.mood_cliente = "Enojado"
-		personaje.actualizar_sprite()
-		main.on_pierde_vida()
+			errores.append("Nombre incorrecto")
+		if cuit_slot_panel.current_label != personaje.cuit_cliente:
+			errores.append("CUIT incorrecto")
+		if domicilio_slot_panel.current_label != personaje.domicilio_cliente:
+			errores.append("Domicilio incorrecto")
+		if seleccion_factura != cliente_factura:
+			errores.append("Tipo de factura incorrecto")
 
 	# 5) Reset de slots
-	reset_drag_slot()
+	resetearDragsYSlots()
 
 # Mostrar factura y drags
-func mostrar_factura(opcion: String) -> void:
+func mostrarDatosDeFactura(opcion: String) -> void:
 	#color_overlay.visible = true
 	visible = true
 	factura_sprite.visible = true
@@ -139,20 +135,19 @@ func mostrar_factura(opcion: String) -> void:
 	$Drags.visible = true
 	$Slots.visible = true
 
-	# Generar drags al mostrar la factura
-	mostrar_drags_cuit()
-	mostrar_drags_nombre()
-	mostrar_drags_domicilio()
+	mostrarDragsDeNombre()
+	mostrarDragsDeCUIT()
+	mostrarDragsDeDomicilio()
 	
-func esconder_factura() -> void:
+func esconderDatosDeFactura() -> void:
 	factura_sprite.visible = false
 	$Drags.visible = false
 	$Slots.visible = false
-	esconder_drags()
-	reset_drag_slot()
+	esconderDrags()
+	resetearDragsYSlots()
 
 # Actualizar información del drag correcto
-func actualizar_informacion(cuit_cliente: String) -> void:
+func actualizarInformacionDeCliente(cuit_cliente: String) -> void:
 	if drag_correcto_label == null:
 		drag_correcto_label = get_node_or_null("Drags/CuitDragLabel")
 	if drag_correcto_label != null:
@@ -161,7 +156,7 @@ func actualizar_informacion(cuit_cliente: String) -> void:
 		push_error("drag_correcto_label es null al llamar actualizar_informacion")
 
 # DRAGS
-func mostrar_drags_cuit() -> void:
+func mostrarDragsDeCUIT() -> void:
 	if drag_correcto_label == null or drag_incorrecto_label == null:
 		return
 	
@@ -173,9 +168,9 @@ func mostrar_drags_cuit() -> void:
 	var cuit_falso = personaje.cuit_secundario
 	drag_incorrecto_label.actualizar_label(cuit_falso)
 	drag_incorrecto_label.visible = true
-	drags_random_position()
+	posicionRandomDeDragsCUIT()
 	
-func mostrar_drags_nombre() -> void:
+func mostrarDragsDeNombre() -> void:
 	if drag_correcto_nombre_label == null or drag_incorrecto_nombre_label == null:
 		return
 	# Drag correcto → el nombre real
@@ -185,9 +180,9 @@ func mostrar_drags_nombre() -> void:
 	var nombre_secundario = personaje.nombre_secundario
 	drag_incorrecto_nombre_label.actualizar_label(nombre_secundario)
 	drag_incorrecto_nombre_label.visible = true
-	drags_nombre_random_position()
+	posicionRandomDeDragsNombre()
 
-func mostrar_drags_domicilio() -> void:
+func mostrarDragsDeDomicilio() -> void:
 	if drag_correcto_domicilio_label == null or drag_incorrecto_domicilio_label == null:
 		return
 	# Drag correcto → el domicilio real
@@ -197,9 +192,9 @@ func mostrar_drags_domicilio() -> void:
 	var domicilio_secundario = personaje.domicilio_secundario
 	drag_incorrecto_domicilio_label.actualizar_label(domicilio_secundario)
 	drag_incorrecto_domicilio_label.visible = true
-	drags_domicilio_random_position()
+	posicionRandomDeDragsDomicilio()
 
-func drags_random_position() -> void:
+func posicionRandomDeDragsCUIT() -> void:
 	match randi_range(1,2):
 		1:
 			drag_correcto_label.position = marker_3.position
@@ -208,7 +203,7 @@ func drags_random_position() -> void:
 			drag_incorrecto_label.position = marker_3.position
 			drag_correcto_label.position = marker_4.position
 
-func drags_nombre_random_position() -> void:
+func posicionRandomDeDragsNombre() -> void:
 	match randi_range(1,2):
 		1:
 			drag_correcto_nombre_label.position = marker_1.position
@@ -217,7 +212,7 @@ func drags_nombre_random_position() -> void:
 			drag_incorrecto_nombre_label.position = marker_1.position
 			drag_correcto_nombre_label.position = marker_2.position
 			
-func drags_domicilio_random_position() -> void:
+func posicionRandomDeDragsDomicilio() -> void:
 	match randi_range(1,2):
 		1:
 			drag_correcto_domicilio_label.position = marker_5.position
@@ -226,7 +221,7 @@ func drags_domicilio_random_position() -> void:
 			drag_incorrecto_domicilio_label.position = marker_5.position
 			drag_correcto_domicilio_label.position = marker_6.position
 
-func esconder_drags() -> void:
+func esconderDrags() -> void:
 	color_overlay.visible = false
 	visible = false
 	# Nombre
@@ -246,7 +241,7 @@ func esconder_drags() -> void:
 		drag_incorrecto_domicilio_label.visible = false
 	
 # Resetear slot del drag
-func reset_drag_slot() -> void:
+func resetearDragsYSlots() -> void:
 	if slot_cuit_label != null:
 		slot_cuit_label.text = ""
 	else:
