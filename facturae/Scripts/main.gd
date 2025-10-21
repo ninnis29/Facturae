@@ -38,9 +38,7 @@ func seleccionarModeloDeFactura(opcion: String) -> void:
 
 
 func perderVida() -> void:
-
 	vidas -= 1
-
 
 	if vidas_container.get_child_count() >= vidas + 1:
 		var vida_node = vidas_container.get_child(vidas) # selecciona la última vida activa

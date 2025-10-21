@@ -76,8 +76,6 @@ func _ready() -> void:
 	
 # Botón continuar -> validación
 func _on_boton_continuar_pressed() -> void:
-
-	
 	print("Drag incorrecto:")
 	print(drag_incorrecto_label.text)
 	print("Current CUIT label:")
@@ -90,13 +88,15 @@ func _on_boton_continuar_pressed() -> void:
 	# 1) Slots vacíos
 	if cuit_slot_panel.current_label == "" or slot_nombre_label.text == "" or slot_domicilio_label.text == "":
 		print("No se puede continuar: Datos incompletos.")
+		personaje.mood_cliente = "Confuso"
+		personaje.cambiarEstadoDeCliente(personaje.mood_cliente)
 		return
 	
 	# 3) Validación correcta
 	elif slot_nombre_label.text == personaje.nombre_cliente and cuit_slot_panel.current_label == personaje.cuit_cliente and domicilio_slot_panel.current_label == personaje.domicilio_cliente and seleccion_factura == cliente_factura:
 		print("Factura correcta ✅. Pasando al siguiente cliente...")
 		personaje.mood_cliente = "Feliz"
-		personaje.actualizar_sprite()
+		personaje.cambiarEstadoDeCliente(personaje.mood_cliente)
 		main.on_correcto()
 	
 	# 4) En cualquier otro caso → incorrecto
@@ -110,7 +110,9 @@ func _on_boton_continuar_pressed() -> void:
 			errores.append("Domicilio incorrecto")
 		if seleccion_factura != cliente_factura:
 			errores.append("Tipo de factura incorrecto")
-
+		personaje.mood_cliente = "Enojado"
+		personaje.cambiarEstadoDeCliente(personaje.mood_cliente)
+		main.perderVida()
 	# 5) Reset de slots
 	resetearDragsYSlots()
 
