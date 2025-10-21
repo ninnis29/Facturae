@@ -3,9 +3,11 @@ extends Node2D
 @onready var facturas = $"../Facturas"
 @onready var computer = $"../computer"
 @onready var sprite: Sprite2D = $ClienteSprite
+@onready var animacion : AnimationPlayer = $ClienteAnimacion
 
 func _ready() -> void:
 	generarFacturaDeCliente()
+	animacion.play("Aparicion")
 
 var dialogos = {
 	"A": ["Podria darme la factura A?", "Deme factura A"],
@@ -90,7 +92,7 @@ func generarFacturaDeCliente() -> void:
 
 func generarNuevoCliente() -> void:
 	generarFacturaDeCliente()
-
+	animacion.play("Aparicion")
 
 ## GENERACION DE TODOS LOS DATOS DE UNA. Invocado a la hora de crear una nueva peticion (factura_random() )
 func generacionDeDatosDeCliente() -> void:
