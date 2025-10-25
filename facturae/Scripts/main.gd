@@ -21,15 +21,15 @@ func _ready():
 
 
 func _on_computer_factura_a() -> void:
-	facturas.mostrarDatosDeFactura("A")
+	facturas.mostrarDatosDeFacturaSeleccionada("A")
 	seleccionarModeloDeFactura("A")
 
 func _on_computer_factura_b() -> void:
-	facturas.mostrarDatosDeFactura("B")
+	facturas.mostrarDatosDeFacturaSeleccionada("B")
 	seleccionarModeloDeFactura("B")
 
 func _on_computer_factura_c() -> void:
-	facturas.mostrarDatosDeFactura("C")
+	facturas.mostrarDatosDeFacturaSeleccionada("C")
 	seleccionarModeloDeFactura("C")
 
 func seleccionarModeloDeFactura(opcion: String) -> void:
@@ -59,20 +59,17 @@ func continuarPartida() -> void:
 	facturas.esconderDatosDeFactura()
 
 func finalizarPartida() -> void:
-	label_pj.text = "¡Se acabaron las facturas! :("
-	await get_tree().create_timer(2.0).timeout
+	label_pj.text = "Quiero hablar con tu jefe"
+	await get_tree().create_timer(3.0).timeout
 	musiquita.frenarMusica() # Si o si tiene que estar esto sino se buguea al reiniciar :) 
 	get_tree().reload_current_scene()
 
-
 func on_correcto() -> void:
 	facturas.esconderDatosDeFactura()
-	label_pj.text = "¡Gracias! :D"
 	await get_tree().create_timer(2.0).timeout
 	continuarPartida()
 
 func on_pierde_vida() -> void:
 	facturas.esconderDatosDeFactura()
-	label_pj.text = "Eso no fue lo que pedí :C"
 	await get_tree().create_timer(2.0).timeout
 	perderVida()

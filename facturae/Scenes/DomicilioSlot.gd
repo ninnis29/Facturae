@@ -4,9 +4,9 @@ extends Panel
 
 var current_label = ""
 
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
 	return true
 
-func _drop_data(at_position: Vector2, data: Variant) -> void:
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	domicilio_slot_label.text = str(data)
 	current_label = str(data)
