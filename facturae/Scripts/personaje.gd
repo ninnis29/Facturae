@@ -119,11 +119,13 @@ func generarDatosSecundariosAleatorios() -> void:
 func generarNombreCompletoSecundarioAleatorio() -> void:
 	nombre_secundario = nombre_cliente
 	while nombre_secundario == nombre_cliente:
-		if genero_cliente == "hombre":
-			nombre_cliente = lista_nombres.pick_random()
-		else:
-			nombre_cliente = lista_nombres_femeninos.pick_random()
+		nombre_cliente = generarNombreAleatorioPorGenero(genero_cliente)
 
+func generarNombreAleatorioPorGenero(genero: String) -> String:
+	if genero == "hombre":
+		return lista_nombres.pick_random()
+	return lista_nombres_femeninos.pick_random()
+	
 func generarCuitSecundarioAleatorio() -> void:
 	cuit_secundario = cuit_cliente
 	while cuit_secundario == cuit_cliente:

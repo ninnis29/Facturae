@@ -1,0 +1,12 @@
+extends Panel
+
+@onready var condicion_slot_label: RichTextLabel = $CondicionSlotLabel
+
+var current_label = ""
+
+func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
+	return true
+
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	condicion_slot_label.text = str(data)
+	current_label = str(data)

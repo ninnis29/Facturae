@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dka3ks6dtqqg0"]
+[gd_scene load_steps=11 format=3 uid="uid://dka3ks6dtqqg0"]
 
 [ext_resource type="Script" uid="uid://bgdrbxwytnt1y" path="res://Scripts/facturas.gd" id="1_qqca8"]
 [ext_resource type="Texture2D" uid="uid://cvr47jeve8xy" path="res://Assets/Facturita_A.png" id="2_k3qap"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://bntrg3oaddili" path="res://Scenes/DomicilioDrag.gd" id="3_kryeg"]
 [ext_resource type="Script" uid="uid://bkgxjgp7xrr38" path="res://Scripts/CuitSlot.gd" id="3_t1a3n"]
 [ext_resource type="Script" uid="uid://bgnwp6u00x4ge" path="res://Scenes/NombreSlot.gd" id="4_jpcf5"]
+[ext_resource type="Script" uid="uid://bv4ppo5oxr0p" path="res://Scenes/CondicionDrag.gd" id="5_gom11"]
 [ext_resource type="Script" uid="uid://csuedo8augp5m" path="res://Scenes/DomicilioSlot.gd" id="6_k3qap"]
+[ext_resource type="Script" uid="uid://cwqyk6v4q60k4" path="res://Scenes/CondicionSlot.gd" id="9_d8kcv"]
 
 [sub_resource type="GDScript" id="GDScript_1iqqh"]
 script/source = "extends RichTextLabel
@@ -116,6 +118,22 @@ theme_override_font_sizes/normal_font_size = 50
 script = ExtResource("3_kryeg")
 metadata/_edit_use_anchors_ = true
 
+[node name="CondicionDragLabel" type="RichTextLabel" parent="Drags"]
+layout_mode = 0
+offset_right = 529.0
+offset_bottom = 88.0
+theme_override_font_sizes/normal_font_size = 50
+script = ExtResource("5_gom11")
+metadata/_edit_use_anchors_ = true
+
+[node name="CondicionDragLabel2" type="RichTextLabel" parent="Drags"]
+layout_mode = 0
+offset_right = 529.0
+offset_bottom = 88.0
+theme_override_font_sizes/normal_font_size = 50
+script = ExtResource("5_gom11")
+metadata/_edit_use_anchors_ = true
+
 [node name="Slots" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 4
@@ -184,6 +202,25 @@ theme_override_font_sizes/normal_font_size = 20
 fit_content = true
 autowrap_mode = 0
 
+[node name="CondicionSlotPanel" type="Panel" parent="Slots"]
+layout_mode = 0
+offset_left = 45.999985
+offset_top = 324.99997
+offset_right = 358.0
+offset_bottom = 354.99997
+scale = Vector2(0.8, 0.8)
+script = ExtResource("9_d8kcv")
+
+[node name="CondicionSlotLabel" type="RichTextLabel" parent="Slots/CondicionSlotPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 100.0
+offset_bottom = 69.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 20
+fit_content = true
+autowrap_mode = 0
+
 [node name="Marker1" type="Marker2D" parent="."]
 position = Vector2(-1166, 427)
 
@@ -203,7 +240,7 @@ position = Vector2(-1166, 600)
 position = Vector2(-658, 602)
 
 [node name="Marker7" type="Marker2D" parent="."]
-position = Vector2(-1164, 678)
+position = Vector2(-1165, 678)
 
 [node name="Marker8" type="Marker2D" parent="."]
-position = Vector2(-654, 678)
+position = Vector2(-657, 678)
