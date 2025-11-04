@@ -6,34 +6,6 @@ extends Node2D
 @onready var animacion : AnimationPlayer = $ClienteAnimacion
 
 
-var lista_nombres = [ # LISTA DE POSIBLES NOMBRES
-	"Juan", "Pablo", "Nahuel", "Gabriel", "Agustin", "Enrique", 
-	"Facundo", "Osvaldo", "Pedro", "Carlos"]
-
-var lista_nombres_femeninos = [ # NOMBRES FEMENINOS
-	"Morena", "Yune", "Ana", "Maria", "Lucia", "Carolina", "Julieta", "Laura",
-	"Camila", "Sofia", "Gabriela", "Rocío"]
-
-var lista_apellidos = [ # LISTA DE POSIBLES APELLIDOS
-	"Martinez", "Lezcano", "Ponce", "Lugano", "Fiorotto", "Richards",
-	"Schlot", "Leal", "Smith", "Lenton", "Bielli", "Monje"]
-
-var lista_cuits = [ # LISTA DE POSIBLES CUITS
-	"27-45219605-3", "24-32669883-2", "27-45604058-1", "23-37525112-4", "24-41286049-3",
-	"20-43520500-4", "24-38753984-7", "20-46412621-0", "23-38774990-0", "20-32736610-7"]
-
-var lista_domicilio_calle = [ # LISTA DE POSIBLES CALLES
-	"Libertad", "Talcahuano", "Ricardo Gutierrez", "Av. Pelliza", "Belgrano",
-	"Julio Sosa", "Luis Miguel", "9 de Julio"]
-
-var lista_domicilio_altura = [ # LISTA DE POSIBLES ALTURAS
-	"1441","514","314","6381","1914",
-	"2005","401","15","58"]
-	
-var lista_condiciones_iva = [ # LISTA DE POSIBLES CONDICIONES IVA
-	"Responsable Inscripto", "No Responsable", "Exento",
-	"Monotributo", "Consumidor Final"]
-
 var nombre_cliente = ""
 var apellido_cliente = ""
 var cuit_cliente = ""
