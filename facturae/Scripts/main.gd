@@ -1,5 +1,7 @@
 extends Node2D
 
+
+
 @onready var computer = $computer
 @onready var facturas = $Facturas
 @onready var continuar_btn = $computer/Continuar
@@ -8,8 +10,8 @@ extends Node2D
 @onready var musiquita = $musiquita
 @onready var vidas_container = $Vidas  # Un HBoxContainer o similar con 3 sprites/texturas de facturas
 
-signal correcto
-signal pierde_vida
+#signal correcto
+#signal pierde_vida
 
 
 var seleccion_jugador: String = "" 
@@ -35,6 +37,8 @@ func _on_computer_factura_c() -> void:
 func seleccionarModeloDeFactura(opcion: String) -> void:
 	continuar_btn.visible = true
 	seleccion_jugador = opcion
+
+
 
 
 func perderVida() -> void:

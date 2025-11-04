@@ -11,15 +11,18 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ody52")
+metadata/_edit_vertical_guides_ = [640.0]
+metadata/_edit_horizontal_guides_ = [360.0]
 
 [node name="Inicio" type="Sprite2D" parent="."]
-position = Vector2(578, 327)
+position = Vector2(640, 360)
+scale = Vector2(1.1111113, 1.111111)
 texture = ExtResource("1_4x7pe")
 
 [node name="play" type="TextureButton" parent="."]
-offset_left = 526.0
+offset_left = 582.0
 offset_top = 362.0
-offset_right = 649.0
+offset_right = 705.0
 offset_bottom = 485.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_2u15q")
@@ -27,9 +30,9 @@ texture_pressed = ExtResource("3_1n23k")
 texture_hover = ExtResource("3_1n23k")
 
 [node name="config" type="TextureButton" parent="."]
-offset_left = 703.0
+offset_left = 759.0
 offset_top = 382.0
-offset_right = 826.0
+offset_right = 882.0
 offset_bottom = 505.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_mf3xv")
@@ -37,9 +40,9 @@ texture_pressed = ExtResource("5_ody52")
 texture_hover = ExtResource("5_ody52")
 
 [node name="exit" type="TextureButton" parent="."]
-offset_left = 343.0
+offset_left = 399.0
 offset_top = 382.0
-offset_right = 466.0
+offset_right = 522.0
 offset_bottom = 505.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_3l3nk")

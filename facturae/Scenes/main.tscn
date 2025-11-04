@@ -21,21 +21,22 @@ zoom = Vector2(0.6, 0.6)
 position = Vector2(916, 565)
 
 [node name="Mesa" type="Sprite2D" parent="."]
-position = Vector2(968, 586)
+position = Vector2(968.99994, 593.49994)
+scale = Vector2(1.1135416, 1.0138888)
 texture = ExtResource("3_344ge")
 
 [node name="computer" parent="." instance=ExtResource("2_bo1nx")]
-position = Vector2(1560, 686)
+position = Vector2(1672, 686)
 
 [node name="Facturas" parent="." instance=ExtResource("4_jjvhh")]
-position = Vector2(1072.0002, 449.00006)
+position = Vector2(1032.0002, 409.0001)
 scale = Vector2(0.85, 0.85)
 
 [node name="Vidas" type="HBoxContainer" parent="."]
-offset_left = 1512.0
-offset_top = 20.0
-offset_right = 1932.0
-offset_bottom = 159.0
+offset_left = 1608.0
+offset_top = -36.0
+offset_right = 2028.0
+offset_bottom = 103.0
 
 [node name="Vida1" type="TextureRect" parent="Vidas"]
 layout_mode = 2
@@ -56,7 +57,8 @@ offset_bottom = 23.0
 [node name="Fondo" type="Sprite2D" parent="."]
 show_behind_parent = true
 z_as_relative = false
-position = Vector2(968, 537)
+position = Vector2(969, 540.00006)
+scale = Vector2(1.1125001, 1.1111112)
 texture = ExtResource("7_6bp64")
 
 [node name="musiquita" parent="." instance=ExtResource("8_344ge")]

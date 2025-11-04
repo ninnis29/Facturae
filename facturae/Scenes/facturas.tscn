@@ -103,36 +103,35 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DomicilioDragLabel" type="RichTextLabel" parent="Drags"]
 layout_mode = 0
-offset_right = 523.0
+offset_right = 489.0
 offset_bottom = 84.0
 theme_override_font_sizes/normal_font_size = 50
-fit_content = true
+autowrap_mode = 2
 script = ExtResource("3_kryeg")
-metadata/_edit_use_anchors_ = true
 
 [node name="DomicilioDragLabel2" type="RichTextLabel" parent="Drags"]
 layout_mode = 0
-offset_right = 529.0
+offset_right = 440.0
 offset_bottom = 88.0
 theme_override_font_sizes/normal_font_size = 50
+autowrap_mode = 2
 script = ExtResource("3_kryeg")
-metadata/_edit_use_anchors_ = true
 
 [node name="CondicionDragLabel" type="RichTextLabel" parent="Drags"]
 layout_mode = 0
-offset_right = 529.0
+offset_right = 472.0
 offset_bottom = 88.0
 theme_override_font_sizes/normal_font_size = 50
+autowrap_mode = 2
 script = ExtResource("5_gom11")
-metadata/_edit_use_anchors_ = true
 
 [node name="CondicionDragLabel2" type="RichTextLabel" parent="Drags"]
 layout_mode = 0
-offset_right = 529.0
+offset_right = 503.0
 offset_bottom = 88.0
 theme_override_font_sizes/normal_font_size = 50
+autowrap_mode = 2
 script = ExtResource("5_gom11")
-metadata/_edit_use_anchors_ = true
 
 [node name="Slots" type="Control" parent="."]
 layout_mode = 3
