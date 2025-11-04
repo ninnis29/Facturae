@@ -15,9 +15,9 @@ metadata/_edit_vertical_guides_ = [640.0]
 metadata/_edit_horizontal_guides_ = [360.0]
 
 [node name="Inicio" type="Sprite2D" parent="."]
-position = Vector2(640, 360)
 scale = Vector2(1.1111113, 1.111111)
 texture = ExtResource("1_4x7pe")
+centered = false
 
 [node name="play" type="TextureButton" parent="."]
 offset_left = 582.0
