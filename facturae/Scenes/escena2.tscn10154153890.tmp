@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhfxmy0klwkrk"]
+
+[ext_resource type="Script" uid="uid://c2jbdc04ys61f" path="res://Scripts/escena_2.gd" id="1_c0spx"]
+[ext_resource type="Texture2D" uid="uid://cqndjae2sok7o" path="res://Assets/Escenas_inicio/Escena2/Brillo Vidas.png" id="2_ta02p"]
+[ext_resource type="Texture2D" uid="uid://dgwnlopquplwd" path="res://Assets/Escenas_inicio/Escena2/Brillo Cuaderno.png" id="3_ykg05"]
+[ext_resource type="Texture2D" uid="uid://dsib4muxe4vqp" path="res://Assets/Escenas_inicio/Escena2/Brillo PC.png" id="4_5jo5l"]
+[ext_resource type="Texture2D" uid="uid://b32275uqx2oha" path="res://Assets/Escenas_inicio/Escena2/Jefe.png" id="5_jb0sr"]
+[ext_resource type="Texture2D" uid="uid://yifymw3m7jb7" path="res://Assets/Escenas_inicio/Escena2/Dialogo.png" id="6_d8mro"]
+[ext_resource type="FontFile" uid="uid://ju386i3tvfhc" path="res://Fonts/PatrickHand-Regular.ttf" id="7_q3xy6"]
+[ext_resource type="Texture2D" uid="uid://ke4ltdcs4tle" path="res://Assets/Escenas_inicio/Escena2/Flecha.png" id="8_a46k3"]
+[ext_resource type="Texture2D" uid="uid://02hyovd8iiuc" path="res://Assets/Escenas_inicio/Escena2/Flecha - hover.png" id="9_7cehn"]
+
+[node name="Escena2" type="Node2D"]
+script = ExtResource("1_c0spx")
+
+[node name="BrilloPc" type="Sprite2D" parent="."]
+position = Vector2(641, 364)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("4_5jo5l")
+
+[node name="BrilloCuaderno" type="Sprite2D" parent="."]
+position = Vector2(640, 364)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("3_ykg05")
+
+[node name="BrilloVidas" type="Sprite2D" parent="."]
+position = Vector2(641, 360)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("2_ta02p")
+
+[node name="Jefe" type="Sprite2D" parent="."]
+position = Vector2(640.99994, 359)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("5_jb0sr")
+
+[node name="Dialogo" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(641.99994, 359)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("6_d8mro")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Dialogo"]
+offset_left = -426.86554
+offset_top = -388.0597
+offset_right = 477.61206
+offset_bottom = -108.9552
+theme_override_colors/default_color = Color(0.29803923, 0.22745098, 0.13333334, 1)
+theme_override_fonts/normal_font = ExtResource("7_q3xy6")
+theme_override_font_sizes/normal_font_size = 51
+text = "Acá tenes la compu donde seleccionarás la factura y te mostrará los datos de los clientes."
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Dialogo2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(641.99994, 359)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("6_d8mro")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Dialogo2"]
+offset_left = -426.86554
+offset_top = -388.0597
+offset_right = 477.61206
+offset_bottom = -108.9552
+theme_override_colors/default_color = Color(0.29803923, 0.22745098, 0.13333334, 1)
+theme_override_fonts/normal_font = ExtResource("7_q3xy6")
+theme_override_font_sizes/normal_font_size = 51
+text = "También te dejo un cuaderno donde podes tomar los apuntes que quieras."
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Dialogo3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(641.99994, 359)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("6_d8mro")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Dialogo3"]
+offset_left = -429.85065
+offset_top = -377.61194
+offset_right = 474.62695
+offset_bottom = -98.50745
+theme_override_colors/default_color = Color(0.29803923, 0.22745098, 0.13333334, 1)
+theme_override_fonts/normal_font = ExtResource("7_q3xy6")
+theme_override_font_sizes/normal_font_size = 51
+text = "Recordá siempre prestar atención a los clientes para no cometer errores en las facturas. Papel de más es un gasto extra, te estaré mirando. "
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Flecha" type="TextureButton" parent="."]
+offset_left = 951.0
+offset_top = 194.99998
+offset_right = 1122.0
+offset_bottom = 366.0
+scale = Vector2(0.67, 0.67)
+mouse_behavior_recursive = 2
+texture_normal = ExtResource("8_a46k3")
+texture_pressed = ExtResource("9_7cehn")
+texture_hover = ExtResource("9_7cehn")
+
+[connection signal="pressed" from="Flecha" to="." method="_on_flecha_pressed"]

@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://yt5aff4winfe"]
+
+[ext_resource type="Script" uid="uid://bheq6rbtomtgp" path="res://Scripts/escena_1.gd" id="1_xmv8x"]
+[ext_resource type="Texture2D" uid="uid://df562f8yno01x" path="res://Assets/Escenas_inicio/Escena1/Fondo.png" id="2_mnxh0"]
+[ext_resource type="Texture2D" uid="uid://c4uqd6orxcgg5" path="res://Assets/Escenas_inicio/Escena1/Jefe.png" id="3_fkwwp"]
+[ext_resource type="Texture2D" uid="uid://bbb3hnnum4t88" path="res://Assets/Escenas_inicio/Escena1/Flecha.png" id="4_wcqbm"]
+[ext_resource type="Texture2D" uid="uid://bogl0sof2h3ss" path="res://Assets/Escenas_inicio/Escena1/Flecha-hover.png" id="5_ifuum"]
+[ext_resource type="Texture2D" uid="uid://dy47fcs0r22t1" path="res://Assets/Escenas_inicio/Escena1/Dialogo.png" id="6_stbg5"]
+[ext_resource type="FontFile" uid="uid://ju386i3tvfhc" path="res://Fonts/PatrickHand-Regular.ttf" id="7_yeyix"]
+
+[sub_resource type="Animation" id="Animation_sg4xc"]
+resource_name = "Texto"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogo/Label:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.53333336, 0.6, 0.6666667, 0.73333335, 0.8, 0.8666667, 0.93333334, 1, 1.0666667, 1.1333333, 1.2, 1.2666667, 1.3333334, 1.4, 1.4666667, 1.5333333, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 6, 9, 14, 21, 25, 27, 30, 35, 39, 42, 46, 52, 64, 67, 72, 77, 83, 86, 95, 100, 104, 115, 120, 134]
+}
+
+[sub_resource type="Animation" id="Animation_hfbgi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogo/Label:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dfcio"]
+_data = {
+&"RESET": SubResource("Animation_hfbgi"),
+&"Texto": SubResource("Animation_sg4xc")
+}
+
+[node name="Escena1" type="Node2D"]
+script = ExtResource("1_xmv8x")
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(643, 360)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("2_mnxh0")
+
+[node name="Jefe" type="Sprite2D" parent="."]
+position = Vector2(635, 353)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("3_fkwwp")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1104.0
+offset_top = 536.0
+offset_right = 1365.0
+offset_bottom = 797.0
+scale = Vector2(0.67, 0.67)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_wcqbm")
+texture_pressed = ExtResource("5_ifuum")
+texture_hover = ExtResource("5_ifuum")
+
+[node name="Dialogo" type="Sprite2D" parent="."]
+position = Vector2(640, 358)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("6_stbg5")
+
+[node name="Label" type="RichTextLabel" parent="Dialogo"]
+offset_left = -695.5224
+offset_top = -286.5672
+offset_right = 250.74628
+offset_bottom = 8.955231
+theme_override_colors/default_color = Color(0.29803923, 0.22745098, 0.13333334, 1)
+theme_override_fonts/normal_font = ExtResource("7_yeyix")
+theme_override_font_sizes/normal_font_size = 51
+text = "Bueno, si bien acepte tu cv a pesar de que no tenes experiencia. Te daré una semana de pasantía para que demuestres tus habilidades. "
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0
+
+[node name="Animations_escena1" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dfcio")
+}
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
