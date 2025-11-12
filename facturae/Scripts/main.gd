@@ -10,12 +10,10 @@ extends Node2D
 @onready var musiquita = $musiquita
 @onready var vidas_container = $Vidas  # Un HBoxContainer o similar con 3 sprites/texturas de facturas
 
-#signal correcto
-#signal pierde_vida
-
 
 var seleccion_jugador: String = "" 
 var vidas: int = 3
+var cantidad_clientes : int = 0
 
 func _ready():
 	# Reproduce la musica al ser invocado. Si se usa autoplay se buguea cuando se reinicia la escena.
@@ -55,12 +53,15 @@ func perderVida() -> void:
 		continuarPartida()
 
 func continuarPartida() -> void:
-	await get_tree().create_timer(1.0).timeout
-	personaje.generarNuevoCliente()  # esto genera un nuevo diálogo aleatorio
-	seleccion_jugador = ""
-	# Solo limpiamos feedback, no el pedido del personaje
-	# feedback_label.text = ""  # si tenés un Label separado para mensajes
-	facturas.esconderDatosDeFactura()
+	if cantidad_clientes < 3:
+		await get_tree().create_timer(1.0).timeout
+		personaje.generarNuevoCliente()  # esto genera un nuevo diálogo aleatorio
+		seleccion_jugador = ""
+		# Solo limpiamos feedback, no el pedido del personaje
+		# feedback_label.text = ""  # si tenés un Label separado para mensajes
+		facturas.esconderDatosDeFactura()
+	else:
+		cierreDia()
 
 func finalizarPartida() -> void:
 	label_pj.text = "Quiero hablar con tu jefe"
@@ -77,3 +78,6 @@ func on_pierde_vida() -> void:
 	facturas.esconderDatosDeFactura()
 	await get_tree().create_timer(2.0).timeout
 	perderVida()
+
+func cierreDia() -> void:
+	print("Se cerro el dia")

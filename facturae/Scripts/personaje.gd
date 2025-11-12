@@ -4,6 +4,7 @@ extends Node2D
 @onready var computer = $"../computer"
 @onready var sprite: Sprite2D = $ClienteSprite
 @onready var animacion : AnimationPlayer = $ClienteAnimacion
+@onready var main : Node2D = $".."
 
 
 var nombre_cliente = ""
@@ -24,13 +25,13 @@ func _ready() -> void:
 	generarNuevoCliente()
 
 func generarFacturaDeCliente() -> void:
+	main.cantidad_clientes += 1
 	
-	match randi_range(0, 2):
-		0: opcion_actual = "Empresario"
-		1: opcion_actual = "Kiosquera"
-		2: opcion_actual = "Bombero"
+	match main.cantidad_clientes: ## CAMBIAR A RANDI_RANGE CUANDO TENGAMOS TODO EL SISTEMA DE LAS SEMANAS
+		1: opcion_actual = "Empresario"
+		2: opcion_actual = "Kiosquera"
+		3: opcion_actual = "Bombero"
 
-	
 	var linea_dialogo = Dialogos[opcion_actual]
 	caja_dialogo.text = linea_dialogo
 	facturas.cliente_factura = Personajes[opcion_actual]["factura"]

@@ -78,6 +78,7 @@ func comunicarFaltaDeDatosDeRegistroDeFactura():
 	personaje.caja_dialogo.text = ("Esto está incompleto...")
 	personaje.mood_cliente = "Confuso"
 	personaje.cambiarEstadoDeCliente(personaje.mood_cliente)
+	main.perderVida()
 
 func guardarEnVariablesTodosLosDragsCorrectosEIncorrectos():
 	guardarEnVariablesDragsCorrectosEIncorrectosDeNombre()
