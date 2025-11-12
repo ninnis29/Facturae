@@ -5,6 +5,7 @@ extends Node2D
 @onready var brillo_pc : Sprite2D = $BrilloPc
 @onready var brillo_cuaderno : Sprite2D = $BrilloCuaderno
 @onready var brillo_vidas: Sprite2D = $BrilloVidas
+@onready var animaciones: AnimationPlayer = $AnimationDialogos
 var dialogos_y_brillos: Array = []
 var indice: int = 0
 
@@ -14,7 +15,7 @@ func _ready() -> void:
 
 func instanciar_dialogos_y_brillos():
 	dialogos_y_brillos = [
-		{"texto": dialogo1, "brillo": brillo_pc },
+		{"texto": dialogo1, "brillo": brillo_pc},
 		{"texto": dialogo2, "brillo": brillo_cuaderno},
 		{"texto": dialogo3, "brillo": brillo_vidas}
 	]
