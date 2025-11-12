@@ -11,3 +11,6 @@
 [node name="Escena2" parent="." instance=ExtResource("2_0wqdw")]
 
 [node name="Escena1" parent="." instance=ExtResource("3_iqniq")]
+
+[connection signal="siguienteEscena2" from="Escena2" to="Escena3" method="_on_escena_2_siguiente_escena_2"]
+[connection signal="siguienteEscena" from="Escena1" to="Escena2" method="_on_escena_1_siguiente_escena"]
