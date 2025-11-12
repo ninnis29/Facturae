@@ -10,3 +10,5 @@ func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	nombre_slot_label.text = str(data)
 	current_label = str(data)
+	await get_tree().create_timer(0.01).timeout
+	self.size.x = nombre_slot_label.size.x + 20

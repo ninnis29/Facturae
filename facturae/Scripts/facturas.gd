@@ -29,9 +29,9 @@ var drag_correcto_domicilio_label: RichTextLabel = null
 var drag_incorrecto_domicilio_label: RichTextLabel = null
 var drag_correcto_condicion_label: RichTextLabel = null
 var drag_incorrecto_condicion_label: RichTextLabel = null
-var factura_a = preload("res://Assets/Facturita_A.png")
-var factura_b = preload("res://Assets/Facturita_B.png")
-var factura_c = preload("res://Assets/Facturita_C.png")
+var factura_a = preload("res://Assets/Facturas/FACTURA A.png")
+var factura_b = preload("res://Assets/Facturas/FACTURA B.png")
+
 var seleccion_factura = ""
 var cliente_factura = ""
 var current_cuit_in_slot = ""
@@ -116,9 +116,7 @@ func mostrarDatosDeFacturaSeleccionada(opcion: String) -> void:
 		"B":
 			factura_sprite.texture = factura_b
 			seleccion_factura = "B"
-		"C":
-			factura_sprite.texture = factura_c
-			seleccion_factura = "C"
+
 
 	mostrarDragsDeNombre()
 	mostrarDragsDeCUIT()

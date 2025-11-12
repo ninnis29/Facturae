@@ -28,6 +28,14 @@ position = Vector2(969, 664)
 scale = Vector2(1.11354, 1.01389)
 texture = ExtResource("3_344ge")
 
+[node name="BotonLibreta" type="TextureButton" parent="."]
+offset_left = 1010.0
+offset_top = 924.0
+offset_right = 1221.0
+offset_bottom = 993.0
+texture_normal = ExtResource("11_6iyac")
+texture_pressed = ExtResource("12_fdnlq")
+
 [node name="computer" parent="." instance=ExtResource("2_bo1nx")]
 position = Vector2(1672, 686)
 
@@ -69,20 +77,12 @@ texture = ExtResource("7_6bp64")
 [node name="Node" type="Node" parent="."]
 script = ExtResource("9_ynf5e")
 
-[node name="BotonLibreta" type="TextureButton" parent="."]
-offset_left = 1010.0
-offset_top = 924.0
-offset_right = 1221.0
-offset_bottom = 993.0
-texture_normal = ExtResource("11_6iyac")
-texture_pressed = ExtResource("12_fdnlq")
-
 [node name="libreta" parent="." instance=ExtResource("10_hptm8")]
 visible = false
 position = Vector2(968, 539)
 
+[connection signal="pressed" from="BotonLibreta" to="." method="_on_libreta_button_pressed"]
 [connection signal="continuar" from="computer" to="." method="_on_computer_continuar"]
 [connection signal="facturaA" from="computer" to="." method="_on_computer_factura_a"]
 [connection signal="facturaB" from="computer" to="." method="_on_computer_factura_b"]
 [connection signal="facturaC" from="computer" to="." method="_on_computer_factura_c"]
-[connection signal="pressed" from="BotonLibreta" to="." method="_on_libreta_button_pressed"]

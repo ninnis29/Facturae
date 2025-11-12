@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dka3ks6dtqqg0"]
 
 [ext_resource type="Script" uid="uid://bgdrbxwytnt1y" path="res://Scripts/facturas.gd" id="1_qqca8"]
-[ext_resource type="Texture2D" uid="uid://cvr47jeve8xy" path="res://Assets/Facturita_A.png" id="2_k3qap"]
+[ext_resource type="Texture2D" uid="uid://b6jth4ny4ccij" path="res://Assets/Facturas/FACTURA A.png" id="2_gom11"]
 [ext_resource type="Script" uid="uid://rffx3dpf3itw" path="res://Scenes/NombreDrag.gd" id="2_t1a3n"]
 [ext_resource type="Script" uid="uid://bntrg3oaddili" path="res://Scenes/DomicilioDrag.gd" id="3_kryeg"]
 [ext_resource type="Script" uid="uid://bkgxjgp7xrr38" path="res://Scripts/CuitSlot.gd" id="3_t1a3n"]
@@ -33,9 +33,9 @@ func actualizar_label(cuit: String) -> void:
 script = ExtResource("1_qqca8")
 
 [node name="Facturita" type="Sprite2D" parent="."]
-position = Vector2(-898, -74.0461)
+position = Vector2(-426, -74.0461)
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("2_k3qap")
+texture = ExtResource("2_gom11")
 
 [node name="Drags" type="Control" parent="."]
 layout_mode = 3
@@ -146,77 +146,80 @@ grow_vertical = 2
 
 [node name="CuitSlotPanel" type="Panel" parent="Slots"]
 layout_mode = 0
-offset_left = -226.0
-offset_top = -126.0
-offset_right = -2.0
-offset_bottom = -96.0
+offset_left = -251.0
+offset_top = -89.0
+offset_right = 220.25
+offset_bottom = -29.0
 scale = Vector2(0.8, 0.8)
 script = ExtResource("3_t1a3n")
 
 [node name="CuitSlotLabel" type="RichTextLabel" parent="Slots/CuitSlotPanel"]
 layout_mode = 0
-offset_left = 8.0
-offset_right = 100.0
-offset_bottom = 69.0
+offset_left = 11.2499695
+offset_top = 2.5
+offset_right = 162.49997
+offset_bottom = 71.5
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 40
 fit_content = true
 autowrap_mode = 0
 
 [node name="NombreSlotPanel" type="Panel" parent="Slots"]
 layout_mode = 0
 offset_left = -208.0
-offset_top = -175.0
-offset_right = 16.0
-offset_bottom = -145.0
+offset_top = -169.00002
+offset_right = 233.24994
+offset_bottom = -109.000015
 scale = Vector2(0.8, 0.8)
 script = ExtResource("4_jpcf5")
 
 [node name="NombreSlotLabel" type="RichTextLabel" parent="Slots/NombreSlotPanel"]
 layout_mode = 0
-offset_left = 8.0
-offset_right = 100.0
+offset_left = 10.5
+offset_right = 102.5
 offset_bottom = 69.0
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 40
 fit_content = true
 autowrap_mode = 0
 
 [node name="DomicilioSlotPanel" type="Panel" parent="Slots"]
 layout_mode = 0
-offset_left = -196.0
-offset_top = -82.0
-offset_right = 116.0
-offset_bottom = -52.0
+offset_left = -161.0
+offset_top = -10.999996
+offset_right = 256.49994
+offset_bottom = 49.250004
 scale = Vector2(0.8, 0.8)
 script = ExtResource("6_k3qap")
 
 [node name="DomicilioSlotLabel" type="RichTextLabel" parent="Slots/DomicilioSlotPanel"]
 layout_mode = 0
-offset_left = 8.0
-offset_right = 100.0
-offset_bottom = 69.0
+offset_left = 11.2499695
+offset_top = -1.2499886
+offset_right = 126.24997
+offset_bottom = 67.750015
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 40
 fit_content = true
 autowrap_mode = 0
 
 [node name="CondicionSlotPanel" type="Panel" parent="Slots"]
 layout_mode = 0
-offset_left = 45.999985
-offset_top = 324.99997
-offset_right = 358.0
-offset_bottom = 354.99997
+offset_left = -143.0
+offset_top = 388.0
+offset_right = 169.0
+offset_bottom = 438.0
 scale = Vector2(0.8, 0.8)
 script = ExtResource("9_d8kcv")
 
 [node name="CondicionSlotLabel" type="RichTextLabel" parent="Slots/CondicionSlotPanel"]
 layout_mode = 0
-offset_left = 8.0
-offset_right = 100.0
-offset_bottom = 69.0
+offset_left = 10.5
+offset_top = -5.0
+offset_right = 141.25
+offset_bottom = 64.0
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 40
 fit_content = true
 autowrap_mode = 0
 
