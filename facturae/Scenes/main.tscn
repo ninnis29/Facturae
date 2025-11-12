@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcnwamcc1w56l"]
+[gd_scene load_steps=13 format=3 uid="uid://bcnwamcc1w56l"]
 
 [ext_resource type="Script" uid="uid://17c2y0j4ybqa" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cmrkkr24qaeva" path="res://Scenes/computer.tscn" id="2_bo1nx"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b6d06q4vlj81l" path="res://Assets/Fondo.png" id="7_6bp64"]
 [ext_resource type="PackedScene" uid="uid://da2mqnxkrv8ax" path="res://Scenes/musiquita.tscn" id="8_344ge"]
 [ext_resource type="Script" uid="uid://jjidd3ybm8pr" path="res://Scripts/fullscreen_manager_component.gd" id="9_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://b8qlwr02so83n" path="res://Scenes/libreta.tscn" id="10_hptm8"]
+[ext_resource type="Texture2D" uid="uid://dpnfv31qo8pqx" path="res://Assets/libreta.png" id="11_6iyac"]
+[ext_resource type="Texture2D" uid="uid://dgxtcg70vf3v" path="res://Assets/libretaPresionada.png" id="12_fdnlq"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8gbba")
@@ -66,7 +69,20 @@ texture = ExtResource("7_6bp64")
 [node name="Node" type="Node" parent="."]
 script = ExtResource("9_ynf5e")
 
+[node name="BotonLibreta" type="TextureButton" parent="."]
+offset_left = 1010.0
+offset_top = 924.0
+offset_right = 1221.0
+offset_bottom = 993.0
+texture_normal = ExtResource("11_6iyac")
+texture_pressed = ExtResource("12_fdnlq")
+
+[node name="libreta" parent="." instance=ExtResource("10_hptm8")]
+visible = false
+position = Vector2(968, 539)
+
 [connection signal="continuar" from="computer" to="." method="_on_computer_continuar"]
 [connection signal="facturaA" from="computer" to="." method="_on_computer_factura_a"]
 [connection signal="facturaB" from="computer" to="." method="_on_computer_factura_b"]
 [connection signal="facturaC" from="computer" to="." method="_on_computer_factura_c"]
+[connection signal="pressed" from="BotonLibreta" to="." method="_on_libreta_button_pressed"]

@@ -9,6 +9,7 @@ extends Node2D
 @onready var label_pj = $Personaje/Label
 @onready var musiquita = $musiquita
 @onready var vidas_container = $Vidas  # Un HBoxContainer o similar con 3 sprites/texturas de facturas
+@onready var libreta: Node2D = $libreta
 
 
 var seleccion_jugador: String = "" 
@@ -19,6 +20,11 @@ func _ready():
 	# Reproduce la musica al ser invocado. Si se usa autoplay se buguea cuando se reinicia la escena.
 	musiquita.reproducirMusica()
 
+
+func mostrarDatosJugador():
+	print("Nombre: ", VariablesJugador.nombre)
+	print("Apellido: ", VariablesJugador.apellido)
+	print("Genero: ", VariablesJugador.genero)
 
 func _on_computer_factura_a() -> void:
 	facturas.mostrarDatosDeFacturaSeleccionada("A")
@@ -81,3 +87,7 @@ func on_pierde_vida() -> void:
 
 func cierreDia() -> void:
 	print("Se cerro el dia")
+
+
+func _on_libreta_button_pressed() -> void:
+	libreta.visible = !libreta.visible
