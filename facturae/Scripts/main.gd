@@ -73,7 +73,7 @@ func finalizarPartida() -> void:
 	label_pj.text = "Quiero hablar con tu jefe"
 	await get_tree().create_timer(3.0).timeout
 	musiquita.frenarMusica() # Si o si tiene que estar esto sino se buguea al reiniciar :) 
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://Scenes/pantalla_derrota.tscn")
 
 func on_correcto() -> void:
 	facturas.esconderDatosDeFactura()
@@ -86,7 +86,7 @@ func on_pierde_vida() -> void:
 	perderVida()
 
 func cierreDia() -> void:
-	print("Se cerro el dia")
+	get_tree().change_scene_to_file("res://Scenes/pantalla_victoria.tscn")
 
 
 func _on_libreta_button_pressed() -> void:

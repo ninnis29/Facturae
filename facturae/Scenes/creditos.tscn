@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=3 uid="uid://btn2x5hu6n7vw"]
+
+[ext_resource type="Script" uid="uid://bwlq7ljt7xi1d" path="res://Scripts/creditos.gd" id="1_lpe7s"]
+[ext_resource type="Texture2D" uid="uid://chbdi41etd3ds" path="res://Assets/PantallaFinal/Jefe-FondoGanarPerder.png" id="1_ompal"]
+[ext_resource type="Texture2D" uid="uid://bo4gqeytkrl6m" path="res://Assets/UI/Boton Salir.png" id="2_lpe7s"]
+[ext_resource type="Texture2D" uid="uid://b1uvi2w7xrf2t" path="res://Assets/UI/Boton Salir-hover.png" id="3_yyntd"]
+[ext_resource type="FontFile" uid="uid://ju386i3tvfhc" path="res://Fonts/PatrickHand-Regular.ttf" id="5_yyntd"]
+[ext_resource type="Texture2D" uid="uid://c5jvggcweonv3" path="res://Assets/PantallaFinal/Jefe-Feliz.png" id="6_cesle"]
+[ext_resource type="Texture2D" uid="uid://b3vfj18htgj3k" path="res://Assets/Personajes/Bombero/Bombero - Feliz.png" id="7_k0fer"]
+[ext_resource type="Texture2D" uid="uid://5n3lrq03gxgt" path="res://Assets/Personajes/Madre/Madre - Feliz.png" id="8_137jf"]
+[ext_resource type="Texture2D" uid="uid://but5564vodkg" path="res://Assets/Personajes/Empresario/Empresario - Feliz.png" id="9_kkgxv"]
+[ext_resource type="Texture2D" uid="uid://casvp8couur7k" path="res://Assets/Personajes/Minita/Minita - Feliz.png" id="10_g76t8"]
+[ext_resource type="Texture2D" uid="uid://81nu04e8sr3a" path="res://Assets/Personajes/Emprendedora/Emprendedora - Feliz.png" id="11_2nvl8"]
+
+[node name="Creditos" type="Node2D"]
+script = ExtResource("1_lpe7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(638, 362)
+scale = Vector2(0.67083335, 0.6703703)
+texture = ExtResource("1_ompal")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1139.0
+offset_top = 21.0
+offset_right = 1262.0
+offset_bottom = 144.0
+texture_normal = ExtResource("2_lpe7s")
+texture_pressed = ExtResource("3_yyntd")
+texture_hover = ExtResource("3_yyntd")
+
+[node name="Creditos" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_bottom = 0.292675
+offset_left = 187.0
+offset_top = 127.0
+offset_right = 1091.4775
+offset_bottom = 499.0
+theme_override_colors/default_color = Color(0.29803923, 0.22745098, 0.13333334, 1)
+theme_override_fonts/normal_font = ExtResource("5_yyntd")
+theme_override_font_sizes/normal_font_size = 51
+text = "Creado por miembros de PokoPoko Studio:
+- Yune Bielli
+- Nahuel Leal
+- Morena Monje
+- Gabriel Smith-Lenton"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Copyright" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_bottom = 0.292675
+offset_left = 941.0
+offset_top = 688.0
+offset_right = 1279.0
+offset_bottom = 719.0
+theme_override_colors/default_color = Color(0.29803923, 0.22745098, 0.13333334, 1)
+theme_override_fonts/normal_font = ExtResource("5_yyntd")
+theme_override_font_sizes/normal_font_size = 15
+text = "© 2025 PokoPoko Studio. Todos los derechos reservados."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Aviso" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_bottom = 0.292675
+offset_left = -65.0
+offset_top = 683.0
+offset_right = 515.0
+offset_bottom = 720.0
+theme_override_colors/default_color = Color(0.29803923, 0.22745098, 0.13333334, 1)
+theme_override_constants/line_separation = -7
+theme_override_fonts/normal_font = ExtResource("5_yyntd")
+theme_override_font_sizes/normal_font_size = 15
+text = "Personajes, nombres y CUITs son ficticios. Cualquier semejanza es coincidencia."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Jefe" type="Sprite2D" parent="."]
+position = Vector2(456.99997, 393.99997)
+scale = Vector2(0.52685183, 0.52685183)
+texture = ExtResource("6_cesle")
+
+[node name="Bombero" type="Sprite2D" parent="."]
+position = Vector2(1224.0001, 534.13214)
+scale = Vector2(0.122244634, 0.12224465)
+texture = ExtResource("7_k0fer")
+
+[node name="Madre" type="Sprite2D" parent="."]
+position = Vector2(949.00006, 529.00006)
+scale = Vector2(0.13166048, 0.13166049)
+texture = ExtResource("8_137jf")
+
+[node name="Empresario" type="Sprite2D" parent="."]
+position = Vector2(1159.8125, 530.1823)
+scale = Vector2(0.1292231, 0.12922308)
+texture = ExtResource("9_kkgxv")
+
+[node name="Kiosquera" type="Sprite2D" parent="."]
+position = Vector2(1092.0001, 533)
+scale = Vector2(0.12432432, 0.124324344)
+texture = ExtResource("10_g76t8")
+
+[node name="Emprendedora" type="Sprite2D" parent="."]
+position = Vector2(1022.375, 532.5811)
+scale = Vector2(0.12533769, 0.12533768)
+texture = ExtResource("11_2nvl8")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

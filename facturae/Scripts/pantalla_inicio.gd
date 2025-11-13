@@ -13,3 +13,7 @@ func _on_config_pressed() -> void:
 func _on_exit_pressed() -> void:
 	get_tree().quit()
 	pass 
+
+
+func _on_creditos_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/creditos.tscn")
