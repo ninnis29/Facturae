@@ -1,10 +1,49 @@
-[gd_scene load_steps=6 format=3 uid="uid://brwo5aheskmgp"]
+[gd_scene load_steps=11 format=3 uid="uid://brwo5aheskmgp"]
 
 [ext_resource type="Texture2D" uid="uid://chbdi41etd3ds" path="res://Assets/PantallaFinal/Jefe-FondoGanarPerder.png" id="1_5pfal"]
 [ext_resource type="Script" uid="uid://c3y1w78qq06r8" path="res://Scripts/pantalla_derrota.gd" id="1_7u835"]
 [ext_resource type="Texture2D" uid="uid://dqrkld4imsx7s" path="res://Assets/PantallaFinal/Jefe-Enojado.png" id="2_7u835"]
 [ext_resource type="Texture2D" uid="uid://bo4gqeytkrl6m" path="res://Assets/UI/Boton Salir.png" id="4_7waj2"]
 [ext_resource type="Texture2D" uid="uid://b1uvi2w7xrf2t" path="res://Assets/UI/Boton Salir-hover.png" id="5_mhse3"]
+[ext_resource type="Texture2D" uid="uid://yifymw3m7jb7" path="res://Assets/Escenas_inicio/Escena2/Dialogo.png" id="6_4qbjl"]
+[ext_resource type="Theme" uid="uid://cxn6yc6yms7j6" path="res://Scenes/labels.tres" id="7_m1cii"]
+
+[sub_resource type="Animation" id="Animation_4qbjl"]
+resource_name = "Dialogo"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogo/RichTextLabel:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 9, 18, 22, 27, 31, 33, 43, 55, 58, 63, 75]
+}
+
+[sub_resource type="Animation" id="Animation_m1cii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogo/RichTextLabel:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x0qdy"]
+_data = {
+&"Dialogo": SubResource("Animation_4qbjl"),
+&"RESET": SubResource("Animation_m1cii")
+}
 
 [node name="PantallaDerrota" type="Node2D"]
 script = ExtResource("1_7u835")
@@ -16,7 +55,7 @@ texture = ExtResource("1_5pfal")
 
 [node name="Jefe" type="Sprite2D" parent="."]
 position = Vector2(586.7778, 448.49997)
-scale = Vector2(0.675, 0.675)
+scale = Vector2(0.67, 0.67)
 texture = ExtResource("2_7u835")
 
 [node name="TextureButton" type="TextureButton" parent="."]
@@ -27,5 +66,25 @@ offset_bottom = 591.0
 texture_normal = ExtResource("4_7waj2")
 texture_pressed = ExtResource("5_mhse3")
 texture_hover = ExtResource("5_mhse3")
+
+[node name="Dialogo" type="Sprite2D" parent="."]
+position = Vector2(771, 421.99997)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("6_4qbjl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Dialogo"]
+offset_left = -414.92538
+offset_top = -313.43277
+offset_right = 519.40295
+offset_bottom = 13.432922
+theme = ExtResource("7_m1cii")
+text = "Deberías practicar un poco más e intentarlo nuevamente en otra oportunidad."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationEscenaDerrota" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x0qdy")
+}
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

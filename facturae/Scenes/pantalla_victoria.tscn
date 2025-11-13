@@ -1,10 +1,49 @@
-[gd_scene load_steps=6 format=3 uid="uid://da2ng2f73jb2i"]
+[gd_scene load_steps=11 format=3 uid="uid://da2ng2f73jb2i"]
 
 [ext_resource type="Script" uid="uid://c4ak5e3i73tnp" path="res://Scripts/pantalla_victoria.gd" id="1_8bc65"]
 [ext_resource type="Texture2D" uid="uid://chbdi41etd3ds" path="res://Assets/PantallaFinal/Jefe-FondoGanarPerder.png" id="1_ipyeh"]
 [ext_resource type="Texture2D" uid="uid://c5jvggcweonv3" path="res://Assets/PantallaFinal/Jefe-Feliz.png" id="2_8bc65"]
 [ext_resource type="Texture2D" uid="uid://bo4gqeytkrl6m" path="res://Assets/UI/Boton Salir.png" id="4_x3kcw"]
 [ext_resource type="Texture2D" uid="uid://b1uvi2w7xrf2t" path="res://Assets/UI/Boton Salir-hover.png" id="5_ir5er"]
+[ext_resource type="Texture2D" uid="uid://yifymw3m7jb7" path="res://Assets/Escenas_inicio/Escena2/Dialogo.png" id="6_ey6n7"]
+[ext_resource type="Theme" uid="uid://cxn6yc6yms7j6" path="res://Scenes/labels.tres" id="7_fof3l"]
+
+[sub_resource type="Animation" id="Animation_kf2mi"]
+resource_name = "Dialogo"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogo/RichTextLabel:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 4, 9, 12, 15, 22, 26, 34, 37, 47, 51, 54, 60, 63, 65, 73]
+}
+
+[sub_resource type="Animation" id="Animation_l41by"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogo/RichTextLabel:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_27btx"]
+_data = {
+&"Dialogo": SubResource("Animation_kf2mi"),
+&"RESET": SubResource("Animation_l41by")
+}
 
 [node name="PantallaVictoria" type="Node2D"]
 script = ExtResource("1_8bc65")
@@ -15,8 +54,8 @@ scale = Vector2(0.6692709, 0.67037034)
 texture = ExtResource("1_ipyeh")
 
 [node name="Jefe" type="Sprite2D" parent="."]
-position = Vector2(542, 438)
-scale = Vector2(0.61851853, 0.6185186)
+position = Vector2(566, 490)
+scale = Vector2(0.67, 0.67)
 texture = ExtResource("2_8bc65")
 
 [node name="TextureButton" type="TextureButton" parent="."]
@@ -27,5 +66,25 @@ offset_bottom = 594.0
 texture_normal = ExtResource("4_x3kcw")
 texture_pressed = ExtResource("5_ir5er")
 texture_hover = ExtResource("5_ir5er")
+
+[node name="Dialogo" type="Sprite2D" parent="."]
+position = Vector2(744, 423)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("6_ey6n7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Dialogo"]
+offset_left = -402.98505
+offset_top = -319.40298
+offset_right = 528.35834
+offset_bottom = -76.119446
+theme = ExtResource("7_fof3l")
+text = "Muy bien en tú primer día! Espero te mantengas así el resto de la semana. "
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationEscenaVictoria" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_27btx")
+}
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -6,7 +6,22 @@
 [ext_resource type="Texture2D" uid="uid://bbb3hnnum4t88" path="res://Assets/Escenas_inicio/Escena1/Flecha.png" id="4_wcqbm"]
 [ext_resource type="Texture2D" uid="uid://bogl0sof2h3ss" path="res://Assets/Escenas_inicio/Escena1/Flecha-hover.png" id="5_ifuum"]
 [ext_resource type="Texture2D" uid="uid://dy47fcs0r22t1" path="res://Assets/Escenas_inicio/Escena1/Dialogo.png" id="6_stbg5"]
-[ext_resource type="FontFile" uid="uid://ju386i3tvfhc" path="res://Fonts/PatrickHand-Regular.ttf" id="7_yeyix"]
+[ext_resource type="Theme" uid="uid://cxn6yc6yms7j6" path="res://Scenes/labels.tres" id="7_xmv8x"]
+
+[sub_resource type="Animation" id="Animation_hfbgi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogo/Label:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_sg4xc"]
 resource_name = "Texto"
@@ -22,21 +37,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 6, 9, 14, 21, 25, 27, 30, 35, 39, 42, 46, 52, 64, 67, 72, 77, 83, 86, 95, 100, 104, 115, 120, 134]
-}
-
-[sub_resource type="Animation" id="Animation_hfbgi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Dialogo/Label:visible_characters")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dfcio"]
@@ -79,9 +79,7 @@ offset_left = -695.5224
 offset_top = -286.5672
 offset_right = 250.74628
 offset_bottom = 8.955231
-theme_override_colors/default_color = Color(0.29803923, 0.22745098, 0.13333334, 1)
-theme_override_fonts/normal_font = ExtResource("7_yeyix")
-theme_override_font_sizes/normal_font_size = 51
+theme = ExtResource("7_xmv8x")
 text = "Bueno, si bien acepte tu cv a pesar de que no tenes experiencia. Te daré una semana de pasantía para que demuestres tus habilidades. "
 autowrap_mode = 2
 horizontal_alignment = 1

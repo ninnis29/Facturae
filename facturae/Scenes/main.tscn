@@ -33,6 +33,7 @@ offset_left = 1010.0
 offset_top = 924.0
 offset_right = 1221.0
 offset_bottom = 993.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("11_6iyac")
 texture_pressed = ExtResource("12_fdnlq")
 
