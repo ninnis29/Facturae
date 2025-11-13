@@ -31,6 +31,7 @@ func generarFacturaDeCliente() -> void:
 		1: opcion_actual = "Empresario"
 		2: opcion_actual = "Kiosquera"
 		3: opcion_actual = "Bombero"
+		4: opcion_actual = "Madre"
 
 	var linea_dialogo = Dialogos[opcion_actual]
 	caja_dialogo.text = linea_dialogo
@@ -86,6 +87,8 @@ func actualizarEstadoDeCliente() -> void:
 			ruta = "res://Assets/Personajes/Minita/Minita - %s.png" % mood_cliente
 		"Bombero":
 			ruta = "res://Assets/Personajes/Bombero/Bombero - %s.png" % mood_cliente
+		"Madre":
+			ruta = "res://Assets/Personajes/Madre/Madre - %s.png" % mood_cliente
 	
 	sprite.texture = load(ruta)
 
@@ -144,7 +147,20 @@ var Personajes: Dictionary = {
 		"cuit_secundarios" : ["33-44336655-4", "34-33445566-4", "33-34345656-4"],
 		"domicilio_secundarios" : ["Av. Avellanas 1535", "Avellaneda 1535", "Av. Llanave 5351"],
 		"condicion_secundarios" : ["Excento", "Monotributista", "Responsable Inscripto"]
-	}
+	},
+	
+	"Madre" : {
+		"nombre" : "Carolina Agranjo",
+		"cuit" : "22-34752761-3",
+		"domicilio" : "Uruguay 7221",
+		"condicion" : "Consumidor Final",
+		"factura" : "B",
+		"nombres_secundarios" : ["Carola Agranjo", "Carolina Granja", "Carolina Agranjera"],
+		"cuit_secundarios" : ["21-34752761-3", "22-34652661-3", "22-43725716-3"],
+		"domicilio_secundarios" : ["Uruguay 7112", "Yurugua 7221", "Uruguay 418"],
+		"condicion_secundarios" : ["Responsable Inscripto", "Consumidor", "Consumidor Inscripto"]
+	},
+	
 }
 
 ## ###############################################################################
@@ -157,5 +173,6 @@ var Personajes: Dictionary = {
 var Dialogos: Dictionary = {
 	"Empresario" : "Hola, ¿cómo va? Soy empresario, nunca te ví por acá. Vine a buscar la factura para mi empresa que es responsable inscripta.",
 	"Kiosquera" : "¡Hola! Sos el/la pasante nuev@, no? Soy la kiosquera del barrio, vengo por la factura de la compra… Soy monotributista.",
-	"Bombero" : "Buenas, vengo de parte del cuartel. Siempre vengo acá y nunca te vi, debes ser nuev@. En fin, porfa dame IVA exento."
+	"Bombero" : "Buenas, vengo de parte del cuartel. Siempre vengo acá y nunca te vi, debes ser nuev@. En fin, porfa dame IVA exento.",
+	"Madre" : "Holis, justo me quede sin agua en casa para mi hija. Solo dame ticket común como consumidor final."
 }

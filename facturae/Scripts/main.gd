@@ -59,7 +59,7 @@ func perderVida() -> void:
 		continuarPartida()
 
 func continuarPartida() -> void:
-	if cantidad_clientes < 3:
+	if cantidad_clientes < 4:
 		await get_tree().create_timer(1.0).timeout
 		personaje.generarNuevoCliente()  # esto genera un nuevo diálogo aleatorio
 		seleccion_jugador = ""
