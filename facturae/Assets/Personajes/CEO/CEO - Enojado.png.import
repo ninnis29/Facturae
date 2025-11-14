@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db1tktnkslktj"
-path="res://.godot/imported/Madre - Confusa.png-43299a5d41c8e1d3ad4e1780ea774459.ctex"
+uid="uid://ongogp6beb1g"
+path="res://.godot/imported/CEO - Enojado.png-1ba24c2b37490358f772d5c52958d91d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Personajes/Madre/Madre - Confusa.png"
-dest_files=["res://.godot/imported/Madre - Confusa.png-43299a5d41c8e1d3ad4e1780ea774459.ctex"]
+source_file="res://Assets/Personajes/CEO/CEO - Enojado.png"
+dest_files=["res://.godot/imported/CEO - Enojado.png-1ba24c2b37490358f772d5c52958d91d.ctex"]
 
 [params]
 

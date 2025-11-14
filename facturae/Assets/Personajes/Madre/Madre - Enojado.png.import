@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2d1onbhruquj"
-path="res://.godot/imported/Madre - Enojada.png-4bc154387c0fdd9af6ae6c80693d0c2a.ctex"
+path="res://.godot/imported/Madre - Enojado.png-1d56d7a11a30a7d236bb40eac5d90de7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Personajes/Madre/Madre - Enojada.png"
-dest_files=["res://.godot/imported/Madre - Enojada.png-4bc154387c0fdd9af6ae6c80693d0c2a.ctex"]
+source_file="res://Assets/Personajes/Madre/Madre - Enojado.png"
+dest_files=["res://.godot/imported/Madre - Enojado.png-1d56d7a11a30a7d236bb40eac5d90de7.ctex"]
 
 [params]
 

@@ -6,7 +6,6 @@ extends Node2D
 @onready var animacion : AnimationPlayer = $ClienteAnimacion
 @onready var main : Node2D = $".."
 
-
 var nombre_cliente = ""
 var apellido_cliente = ""
 var cuit_cliente = ""
@@ -32,6 +31,7 @@ func generarFacturaDeCliente() -> void:
 		2: opcion_actual = "Kiosquera"
 		3: opcion_actual = "Bombero"
 		4: opcion_actual = "Madre"
+		5: opcion_actual = "CEO"
 
 	var linea_dialogo = Dialogos[opcion_actual]
 	caja_dialogo.text = linea_dialogo
@@ -89,6 +89,8 @@ func actualizarEstadoDeCliente() -> void:
 			ruta = "res://Assets/Personajes/Bombero/Bombero - %s.png" % mood_cliente
 		"Madre":
 			ruta = "res://Assets/Personajes/Madre/Madre - %s.png" % mood_cliente
+		"CEO":
+			ruta = "res://Assets/Personajes/CEO/CEO - %s.png" % mood_cliente
 	
 	sprite.texture = load(ruta)
 
@@ -161,6 +163,18 @@ var Personajes: Dictionary = {
 		"condicion_secundarios" : ["Responsable Inscripto", "Consumidor", "Consumidor Inscripto"]
 	},
 	
+	"CEO" : {
+		"nombre" : "Mathew Vosconoicov",
+		"cuit" : "22-21180399-9",
+		"domicilio" : "Bernardo H. 484",
+		"condicion" : "Responsable Inscripto",
+		"factura" : "B",
+		"nombres_secundarios" : ["Carola Agranjo", "Carolina Granja", "Carolina Agranjera"],
+		"cuit_secundarios" : ["22-21108399-9", "22-21180399-8", "21-21180399-9"],
+		"domicilio_secundarios" : ["Bernardo 484", "Bernardo H. 848", "Bernard H. 484"],
+		"condicion_secundarios" : ["Responsable", "Responsabilidad inscripta", "Consumidor Inscripto"]
+	}
+	
 }
 
 ## ###############################################################################
@@ -174,5 +188,7 @@ var Dialogos: Dictionary = {
 	"Empresario" : "Hola, ¿cómo va? Soy empresario, nunca te ví por acá. Vine a buscar la factura para mi empresa que es responsable inscripta.",
 	"Kiosquera" : "¡Hola! Sos el/la pasante nuev@, no? Soy la kiosquera del barrio, vengo por la factura de la compra… Soy monotributista.",
 	"Bombero" : "Buenas, vengo de parte del cuartel. Siempre vengo acá y nunca te vi, debes ser nuev@. En fin, porfa dame IVA exento.",
-	"Madre" : "Holis, justo me quede sin agua en casa para mi hija. Solo dame ticket común como consumidor final."
+	"Madre" : "Holis, justo me quede sin agua en casa para mi hija. Solo dame ticket común como consumidor final.",
+	"CEO" : "Buenas, vengo a buscar un encargo de bebidas para una reunión en la empresa. El ticket va a nombre de la empresa."
+
 }
