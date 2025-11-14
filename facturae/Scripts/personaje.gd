@@ -168,8 +168,8 @@ var Personajes: Dictionary = {
 		"cuit" : "22-21180399-9",
 		"domicilio" : "Bernardo H. 484",
 		"condicion" : "Responsable Inscripto",
-		"factura" : "B",
-		"nombres_secundarios" : ["Carola Agranjo", "Carolina Granja", "Carolina Agranjera"],
+		"factura" : "A",
+		"nombres_secundarios" : ["Matheow Vosconoicov", "Mateo Vosconoicov", "Mathew Vosnocoicov"],
 		"cuit_secundarios" : ["22-21108399-9", "22-21180399-8", "21-21180399-9"],
 		"domicilio_secundarios" : ["Bernardo 484", "Bernardo H. 848", "Bernard H. 484"],
 		"condicion_secundarios" : ["Responsable", "Responsabilidad inscripta", "Consumidor Inscripto"]
@@ -190,5 +190,5 @@ var Dialogos: Dictionary = {
 	"Bombero" : "Buenas, vengo de parte del cuartel. Siempre vengo acá y nunca te vi, debes ser nuev@. En fin, porfa dame IVA exento.",
 	"Madre" : "Holis, justo me quede sin agua en casa para mi hija. Solo dame ticket común como consumidor final.",
 	"CEO" : "Buenas, vengo a buscar un encargo de bebidas para una reunión en la empresa. El ticket va a nombre de la empresa."
-
+	
 }
