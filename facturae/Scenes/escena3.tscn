@@ -183,5 +183,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_6sf12")
 }
 
+[node name="Sonido" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="pressed" from="ButtonChange" to="." method="_on_button_change_pressed"]
 [connection signal="pressed" from="Flecha" to="." method="_on_flecha_pressed"]

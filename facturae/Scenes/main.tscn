@@ -82,6 +82,8 @@ script = ExtResource("9_ynf5e")
 visible = false
 position = Vector2(968, 539)
 
+[node name="Sonido" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="pressed" from="BotonLibreta" to="." method="_on_libreta_button_pressed"]
 [connection signal="continuar" from="computer" to="." method="_on_computer_continuar"]
 [connection signal="facturaA" from="computer" to="." method="_on_computer_factura_a"]

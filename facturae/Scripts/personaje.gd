@@ -5,6 +5,9 @@ extends Node2D
 @onready var sprite: Sprite2D = $ClienteSprite
 @onready var animacion : AnimationPlayer = $ClienteAnimacion
 @onready var main : Node2D = $".."
+@onready var sonido_nodo: AudioStreamPlayer2D = $Sonido
+
+
 
 var nombre_cliente = ""
 var apellido_cliente = ""
@@ -49,6 +52,7 @@ func generacionDeDatosDeCliente() -> void:
 	generarDatosSecundarios()
 	actualizarEstadoDeCliente()
 	cambiarEstadoDeCliente("Normal")
+	reproducirEstadoCliente()
 	await get_tree().process_frame
 	facturas.actualizarInformacionDeCliente(cuit_cliente)
 	computer.mostrarTodosLosDatosDeCliente(
@@ -93,6 +97,7 @@ func actualizarEstadoDeCliente() -> void:
 			ruta = "res://Assets/Personajes/CEO/CEO - %s.png" % mood_cliente
 	
 	sprite.texture = load(ruta)
+	reproducirEstadoCliente()
 
 ## ###############################################################################
 ## //////////////////////////////             \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -192,3 +197,54 @@ var Dialogos: Dictionary = {
 	"CEO" : "Buenas, vengo a buscar un encargo de bebidas para una reunión en la empresa. El ticket va a nombre de la empresa."
 	
 }
+
+## ###############################################################################
+##  /////////////////////////////                 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+## /////////////////////////////   NUEVA SECCION   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+## \\\\\\\\\\\\\\\\\\\\\\\\\\\\\        SFX        ////////////////////////////////////
+##  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\                 ////////////////////////////////////
+## ###############################################################################
+
+var Sonidos: Dictionary = {
+	"Empresario": {
+		"Normal" : ["res://SFX/Empresario_1.wav", "res://SFX/Empresario_2.wav", "res://SFX/Empresario_3.wav", "res://SFX/Empresario_4.wav"],
+		"Confuso" : ["res://SFX/Empresario_Enojado_1.wav", "res://SFX/Empresario_Enojado_2.wav", "res://SFX/Empresario_Enojado_3.wav"],
+		"Enojado" : ["res://SFX/Empresario_Enojado_1.wav", "res://SFX/Empresario_Enojado_2.wav", "res://SFX/Empresario_Enojado_3.wav"],
+		"Feliz" : ["res://SFX/Empresario_Feliz_1.wav", "res://SFX/Empresario_Feliz_2.wav", "res://SFX/Empresario_Feliz_3.wav"]
+	},
+	
+	"Kiosquera" : {
+		"Normal" : ["res://SFX/Kiosquera_1.wav", "res://SFX/Kiosquera_2.wav", "res://SFX/Kiosquera_3.wav"],
+		"Confuso" : ["res://SFX/Kiosquera_Enojada_1.wav", "res://SFX/Kiosquera_Enojada_2.wav"],
+		"Enojado" : ["res://SFX/Kiosquera_Enojada_1.wav", "res://SFX/Kiosquera_Enojada_2.wav"],
+		"Feliz" : ["res://SFX/Kiosquera_Feliz_1.wav", "res://SFX/Kiosquera_Feliz_2.wav"]
+	},
+	
+	"Bombero": {
+		"Normal" : ["res://SFX/Bombero_1.wav", "res://SFX/Bombero_2.wav", "res://SFX/Bombero_3.wav", "res://SFX/Bombero_4.wav"],
+		"Confuso" : ["res://SFX/Bombero_Enojado_1.wav", "res://SFX/Bombero_Enojado_2.wav"],
+		"Enojado" : ["res://SFX/Bombero_Enojado_1.wav", "res://SFX/Bombero_Enojado_2.wav"],
+		"Feliz" : ["res://SFX/Bombero_Feliz_1.wav", "res://SFX/Bombero_Feliz_2.wav"]
+	},
+	
+	"Madre" : {
+		"Normal" : ["res://SFX/Madre_1.wav", "res://SFX/Madre_2.wav", "res://SFX/Madre_3.wav"],
+		"Confuso" : ["res://SFX/Madre_Enojada_1.wav", "res://SFX/Madre_Enojada_2.wav"],
+		"Enojado" : ["res://SFX/Madre_Enojada_1.wav", "res://SFX/Madre_Enojada_2.wav"],
+		"Feliz" : ["res://SFX/Madre_Feliz_1.wav", "res://SFX/Madre_Feliz_2.wav"]
+	},
+	
+	"CEO" : {
+		"Normal" : ["res://SFX/CEO_1.wav", "res://SFX/CEO_2.wav", "res://SFX/CEO_3.wav"],
+		"Confuso" : ["res://SFX/CEO_Enojado_1.wav", "res://SFX/CEO_Enojado_2.wav"],
+		"Enojado" : ["res://SFX/CEO_Enojado_1.wav", "res://SFX/CEO_Enojado_2.wav"],
+		"Feliz" : ["res://SFX/CEO_Feliz_1.wav", "res://SFX/CEO_Feliz_2.wav"]
+	}
+}
+
+func reproducirEstadoCliente():
+	var sonido = Sonidos[opcion_actual][mood_cliente]
+	var eleccion_random = randi_range(0 , sonido.size()-1)
+	sonido_nodo.stream = load(sonido[eleccion_random])
+	sonido_nodo.play()
+	

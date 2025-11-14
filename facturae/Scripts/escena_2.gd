@@ -7,8 +7,10 @@ extends Node2D
 @onready var brillo_cuaderno : Sprite2D = $BrilloCuaderno
 @onready var brillo_vidas: Sprite2D = $BrilloVidas
 @onready var animaciones: AnimationPlayer = $Animations_escena2
+@onready var sonido: AudioStreamPlayer2D = $Sonido
 signal siguienteEscena2
 
+var dialogo = ["res://SFX/Jefe_1.wav", "res://SFX/Jefe_2.wav", "res://SFX/Jefe_3.wav", "res://SFX/Jefe_4.wav"]
 var dialogos_y_brillos: Array = []
 var indice: int = 0
 
@@ -35,6 +37,9 @@ func mostrar_dialogo_actual():
 	
 	if actual.has("animacion"):
 		animaciones.play(actual["animacion"])
+	
+	sonido.stream = load(dialogo[randi_range(0, 3)])
+	sonido.play()
 
 
 func _on_flecha_pressed() -> void:

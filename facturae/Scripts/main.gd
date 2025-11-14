@@ -10,6 +10,7 @@ extends Node2D
 @onready var musiquita = $musiquita
 @onready var vidas_container = $Vidas  # Un HBoxContainer o similar con 3 sprites/texturas de facturas
 @onready var libreta: Node2D = $libreta
+@onready var sonido: AudioStreamPlayer2D = $Sonido
 
 
 var seleccion_jugador: String = "" 
@@ -51,6 +52,9 @@ func perderVida() -> void:
 	if vidas_container.get_child_count() >= vidas + 1:
 		var vida_node = vidas_container.get_child(vidas) # selecciona la última vida activa
 		vida_node.texture = preload("res://Assets/papel arrugado.png")  # cambia la textura
+		var sfx = ["res://SFX/Arrugado_1.wav", "res://SFX/Arrugado_2.wav"]
+		sonido.stream = load(sfx[randi_range(0, sfx.size()-1 )])
+		sonido.play()
 
 	if vidas <= 0:
 		finalizarPartida()
@@ -60,29 +64,30 @@ func perderVida() -> void:
 
 func continuarPartida() -> void:
 	if cantidad_clientes < 5:
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(3.5).timeout
 		personaje.generarNuevoCliente()  # esto genera un nuevo diálogo aleatorio
 		seleccion_jugador = ""
 		# Solo limpiamos feedback, no el pedido del personaje
 		# feedback_label.text = ""  # si tenés un Label separado para mensajes
 		facturas.esconderDatosDeFactura()
 	else:
+		await get_tree().create_timer(3.5).timeout
 		cierreDia()
 
 func finalizarPartida() -> void:
 	label_pj.text = "Quiero hablar con tu jefe"
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(4.0).timeout
 	musiquita.frenarMusica() # Si o si tiene que estar esto sino se buguea al reiniciar :) 
 	get_tree().change_scene_to_file("res://Scenes/pantalla_derrota.tscn")
 
 func on_correcto() -> void:
 	facturas.esconderDatosDeFactura()
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(0.1).timeout
 	continuarPartida()
 
 func on_pierde_vida() -> void:
 	facturas.esconderDatosDeFactura()
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	perderVida()
 
 func cierreDia() -> void:

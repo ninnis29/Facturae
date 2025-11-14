@@ -1,6 +1,8 @@
 extends Panel
 
 @onready var nombre_slot_label: RichTextLabel = $NombreSlotLabel
+@onready var facturas: Node2D = $"../.."
+
 
 var current_label = ""
 
@@ -12,3 +14,4 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	current_label = str(data)
 	await get_tree().create_timer(0.01).timeout
 	self.size.x = nombre_slot_label.size.x + 20
+	facturas.reproducirSonido()

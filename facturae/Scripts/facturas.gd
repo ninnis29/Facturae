@@ -21,6 +21,12 @@ extends Node2D
 @onready var marker_7: Marker2D = $Marker7
 @onready var marker_8: Marker2D = $Marker8
 
+
+@onready var sonido: AudioStreamPlayer2D = $Sonido
+var sfx = ["res://SFX/Escritura_1.wav", "res://SFX/Escritura_2.wav", "res://SFX/Escritura_3.wav", "res://SFX/Escritura_4.wav"]
+
+
+
 var drag_correcto_cuit_label: RichTextLabel = null
 var drag_incorrecto_cuit_label: RichTextLabel = null
 var drag_correcto_nombre_label: RichTextLabel = null
@@ -276,3 +282,8 @@ func resetearSlotDeCondicion():
 		slot_condicion_label.text = ""
 	else:
 		push_error("SlotCondicionLabel no encontrado para resetear")
+
+
+func reproducirSonido():
+	sonido.stream = load(sfx[randi_range(0, sfx.size()-1)])
+	sonido.play()

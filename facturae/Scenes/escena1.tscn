@@ -93,4 +93,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_dfcio")
 }
 
+[node name="Sonido" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

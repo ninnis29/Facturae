@@ -4,6 +4,8 @@ extends Node2D
 @onready var line_edit_apellido: LineEdit = $LineEditApellido
 @onready var label_jefe: RichTextLabel = $RichTextLabel
 @onready var animacion: AnimationPlayer = $Animations_escena3
+@onready var sonido: AudioStreamPlayer2D = $Sonido
+var dialogo = ["res://SFX/Jefe_1.wav", "res://SFX/Jefe_2.wav", "res://SFX/Jefe_3.wav", "res://SFX/Jefe_4.wav"]
 
 func iniciarJuego() -> void:
 	determinarGenero()
@@ -33,3 +35,5 @@ func _on_flecha_pressed() -> void:
 
 func _on_escena_2_siguiente_escena_2() -> void:
 	animacion.play("Dialogo")
+	sonido.stream = load(dialogo[randi_range(0, 3)])
+	sonido.play()
