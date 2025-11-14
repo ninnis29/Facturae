@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dka3ks6dtqqg0"]
+[gd_scene load_steps=12 format=3 uid="uid://dka3ks6dtqqg0"]
 
 [ext_resource type="Script" uid="uid://bgdrbxwytnt1y" path="res://Scripts/facturas.gd" id="1_qqca8"]
 [ext_resource type="Texture2D" uid="uid://b6jth4ny4ccij" path="res://Assets/Facturas/FACTURA A.png" id="2_gom11"]
 [ext_resource type="Script" uid="uid://rffx3dpf3itw" path="res://Scenes/NombreDrag.gd" id="2_t1a3n"]
+[ext_resource type="Theme" uid="uid://by0yqm4ujq75v" path="res://Scenes/drags.tres" id="3_d8kcv"]
 [ext_resource type="Script" uid="uid://bntrg3oaddili" path="res://Scenes/DomicilioDrag.gd" id="3_kryeg"]
 [ext_resource type="Script" uid="uid://bkgxjgp7xrr38" path="res://Scripts/CuitSlot.gd" id="3_t1a3n"]
 [ext_resource type="Script" uid="uid://bgnwp6u00x4ge" path="res://Scenes/NombreSlot.gd" id="4_jpcf5"]
@@ -52,85 +53,113 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="CuitDragLabel" type="RichTextLabel" parent="Drags"]
-layout_mode = 0
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 5.875
+anchor_bottom = 0.25
 offset_right = 112.0
 offset_bottom = 69.0
+theme = ExtResource("3_d8kcv")
 theme_override_font_sizes/normal_font_size = 50
 fit_content = true
 autowrap_mode = 0
+horizontal_alignment = 1
 script = SubResource("GDScript_1iqqh")
 metadata/_edit_use_anchors_ = true
 
 [node name="CuitDragLabel2" type="RichTextLabel" parent="Drags"]
-layout_mode = 0
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 5.775
+anchor_bottom = 0.25
 offset_right = 112.0
 offset_bottom = 69.0
+theme = ExtResource("3_d8kcv")
 theme_override_font_sizes/normal_font_size = 50
 fit_content = true
 autowrap_mode = 0
+horizontal_alignment = 1
 script = SubResource("GDScript_1iqqh")
 metadata/_edit_use_anchors_ = true
 
 [node name="NombreDragLabel" type="RichTextLabel" parent="Drags"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -3.275
 anchor_top = -1.2
-anchor_right = -3.275
-anchor_bottom = -1.2
+anchor_right = 3.35
+anchor_bottom = -0.725
 offset_right = 112.0
 offset_bottom = 69.0
+theme = ExtResource("3_d8kcv")
 theme_override_font_sizes/normal_font_size = 50
 fit_content = true
 autowrap_mode = 0
+horizontal_alignment = 1
 script = ExtResource("2_t1a3n")
 metadata/_edit_use_anchors_ = true
 
 [node name="NombreDragLabel2" type="RichTextLabel" parent="Drags"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -3.35
 anchor_top = -1.175
-anchor_right = -3.35
-anchor_bottom = -1.175
+anchor_right = 3.425
+anchor_bottom = -0.775
 offset_right = 112.0
 offset_bottom = 69.0
+theme = ExtResource("3_d8kcv")
 theme_override_font_sizes/normal_font_size = 50
 fit_content = true
 autowrap_mode = 0
+horizontal_alignment = 1
 script = ExtResource("2_t1a3n")
 metadata/_edit_use_anchors_ = true
 
 [node name="DomicilioDragLabel" type="RichTextLabel" parent="Drags"]
+visible = false
 layout_mode = 0
-offset_right = 620.0
-offset_bottom = 91.0
+offset_right = 433.0
+offset_bottom = 90.0
+theme = ExtResource("3_d8kcv")
 theme_override_font_sizes/normal_font_size = 50
 autowrap_mode = 2
+horizontal_alignment = 1
 script = ExtResource("3_kryeg")
 
 [node name="DomicilioDragLabel2" type="RichTextLabel" parent="Drags"]
+visible = false
 layout_mode = 0
-offset_right = 566.0
-offset_bottom = 88.0
+offset_right = 432.0
+offset_bottom = 87.0
+theme = ExtResource("3_d8kcv")
 theme_override_font_sizes/normal_font_size = 50
 autowrap_mode = 2
+horizontal_alignment = 1
 script = ExtResource("3_kryeg")
 
 [node name="CondicionDragLabel" type="RichTextLabel" parent="Drags"]
 layout_mode = 0
-offset_right = 605.0
-offset_bottom = 88.0
+offset_right = 580.0
+offset_bottom = 89.0
+theme = ExtResource("3_d8kcv")
 theme_override_font_sizes/normal_font_size = 50
 autowrap_mode = 2
+horizontal_alignment = 1
 script = ExtResource("5_gom11")
 
 [node name="CondicionDragLabel2" type="RichTextLabel" parent="Drags"]
 layout_mode = 0
-offset_right = 622.0
-offset_bottom = 88.0
+offset_right = 575.0
+offset_bottom = 86.0
+theme = ExtResource("3_d8kcv")
 theme_override_font_sizes/normal_font_size = 50
 autowrap_mode = 2
+horizontal_alignment = 1
 script = ExtResource("5_gom11")
 
 [node name="Slots" type="Control" parent="."]
@@ -230,21 +259,21 @@ position = Vector2(-1166, 427)
 position = Vector2(-411, 427)
 
 [node name="Marker3" type="Marker2D" parent="."]
-position = Vector2(-1166, 513)
+position = Vector2(-1166, 517)
 
 [node name="Marker4" type="Marker2D" parent="."]
-position = Vector2(-410, 513)
+position = Vector2(-410, 517)
 
 [node name="Marker5" type="Marker2D" parent="."]
-position = Vector2(-1166, 600)
+position = Vector2(-1166, 610)
 
 [node name="Marker6" type="Marker2D" parent="."]
-position = Vector2(-408, 602)
+position = Vector2(-408, 612)
 
 [node name="Marker7" type="Marker2D" parent="."]
-position = Vector2(-1165, 678)
+position = Vector2(-1166, 706)
 
 [node name="Marker8" type="Marker2D" parent="."]
-position = Vector2(-407, 678)
+position = Vector2(-407, 708)
 
 [node name="Sonido" type="AudioStreamPlayer2D" parent="."]

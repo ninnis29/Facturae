@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://07jwkjouah3w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddsqi"]
+bg_color = Color(0.93333334, 0.81960785, 0.8, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 9
+expand_margin_left = 50.0
+expand_margin_top = 20.0
+expand_margin_right = 50.0
+expand_margin_bottom = 20.0
+
+[resource]
+Label/colors/font_color = Color(0.29803923, 0.22745098, 0.13333334, 1)
+Label/styles/normal = SubResource("StyleBoxFlat_ddsqi")

@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://by0yqm4ujq75v"]
+
+[ext_resource type="FontFile" uid="uid://ju386i3tvfhc" path="res://Fonts/PatrickHand-Regular.ttf" id="1_ue06v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gom11"]
+bg_color = Color(0.9411765, 0.7254902, 0.54901963, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.41884816, 0.32135308, 0.21152616, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 17
+
+[resource]
+RichTextLabel/colors/default_color = Color(0.29803923, 0.22745098, 0.13333334, 1)
+RichTextLabel/fonts/normal_font = ExtResource("1_ue06v")
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_gom11")
